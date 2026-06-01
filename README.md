@@ -81,9 +81,24 @@ treats everything else as read-only.
 
 ## Optional: a face and a voice
 
-Want to *talk* to your OS? The optional **W_Counsel (军师 · 诸葛 Zhuge)** shell adds a voice + 3D
-strategist that runs this same OS — a portable, no-install Windows app (`W_Counsel-Setup.zip`: unzip →
-double-click). You point it at this OS folder in the app's settings. See [`w-counsel/README.md`](./w-counsel/README.md).
+> **The OS runs fine as plain text in Claude Code. W_Counsel is what happens when you give it a face.**
+
+<p align="center">
+  <img src="w-counsel/w_counsel.png" alt="W_Counsel (军师 · 诸葛 Zhuge) — a voxel war-counsel speaking inside the app" width="760">
+</p>
+
+Meet **W_Counsel (军师 · 诸葛 Zhuge)** — your war-counsel. Same OS underneath, but now you *talk* to it:
+you speak, it reasons against your own data folder, and a 3D strategist answers back in your language
+(中文 or English). No new account, no cloud vault — it runs on the Claude login you already have.
+
+- **It has a face.** A desktop strategist that listens, thinks, and speaks back — not a chat box wearing a costume.
+- **It runs on you, not a vendor.** Your Claude Code sign-in or your own `sk-ant-…` key. Your knowledge never leaves your machine.
+- **It compounds.** Say `入库` / "ingest" and it files what you fed it into your **库 Arsenal** — the same loop the OS already runs.
+- **It stays in its lane.** It may edit *only* its own data folder; everything else on your disk is read-only.
+- **Zero install.** A portable Windows zip — unzip, double-click, done. No Node, no Python, no Rust.
+
+Point it at this OS folder in its settings and the war-counsel runs *your* campaign. Full setup and the
+ToS-clean auth design live in [`w-counsel/README.md`](./w-counsel/README.md).
 
 ---
 

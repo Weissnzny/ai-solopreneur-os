@@ -1,5 +1,9 @@
 # W_Counsel (军师) — the optional face
 
+<p align="center">
+  <img src="w_counsel.png" alt="W_Counsel (军师 · 诸葛 Zhuge) speaking inside the app — a voxel war-counsel beside the chat panel" width="760">
+</p>
+
 The **AI Solopreneur OS is the product; W_Counsel is the mascot** — your 军师 (jūnshī, "war-counsel").
 Everything in this repo works in plain Claude Code with no mascot at all. W_Counsel is an **optional
 shell**: a voice + 3D talking-strategist (诸葛 / Zhuge Liang) that you *speak to*, running the same OS
