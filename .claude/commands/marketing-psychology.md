@@ -1,0 +1,1 @@
+﻿Apply behavioral science to a marketing challenge (知 Knowing). Read and execute .claude/skills/marketing-psychology/SKILL.md.

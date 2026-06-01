@@ -1,0 +1,1 @@
+﻿Generate an 8-slide carousel (战 The Campaign). Read and execute .claude/skills/carousel/SKILL.md.

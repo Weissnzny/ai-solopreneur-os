@@ -1,0 +1,46 @@
+# --- secrets & local config ---
+.env
+*.env
+!.env.example
+
+# --- node ---
+node_modules/
+npm-debug.log*
+package-lock.json
+
+# --- runtime / scratch ---
+tmp/
+/tmp/
+*.log
+output/
+.cache/
+
+# --- your private knowledge (the Arsenal stays yours) ---
+# The repo ships the wiki SCHEMA + one example per department.
+# Your real, compounding knowledge lives in wiki/ but is never published.
+wiki/coaches/*
+wiki/concepts/*
+wiki/scenarios/*
+wiki/sources/*
+wiki/syntheses/*
+wiki/raw/*
+!wiki/**/.gitkeep
+!wiki/**/_about.md
+!wiki/coaches/example-*.md
+!wiki/concepts/example-*.md
+!wiki/scenarios/example-*.md
+!wiki/sources/example-*.md
+!wiki/syntheses/example-*.md
+!wiki/raw/example-*.md
+!wiki/index.md
+!wiki/log.md
+!wiki/overview.md
+
+# --- W_Counsel mascot heavy assets (bring-your-own) ---
+w-counsel/models/*.glb
+w-counsel/models/*.glb.bak
+
+# --- OS noise ---
+.DS_Store
+Thumbs.db
+desktop.ini

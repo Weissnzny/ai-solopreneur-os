@@ -1,0 +1,1 @@
+﻿Turn a video script into AI-ready shot prompts (战 The Campaign). Read and execute .claude/skills/storyboard/SKILL.md.

@@ -1,0 +1,1 @@
+﻿Generate multi-platform post captions (战 The Campaign). Read and execute .claude/skills/caption/SKILL.md.

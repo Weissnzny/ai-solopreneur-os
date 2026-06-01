@@ -1,0 +1,1 @@
+﻿Morning kickoff (令 The Morning Command). Read and execute .claude/skills/daily-routine/SKILL.md in start mode.

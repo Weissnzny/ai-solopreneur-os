@@ -1,0 +1,1 @@
+﻿Show the whole OS at a glance (势 The Terrain). Read and execute .claude/skills/system-map/SKILL.md.

@@ -1,0 +1,1 @@
+﻿Generate a 40-second Founder Notes video script (战 The Campaign). Read and execute .claude/skills/video-script/SKILL.md.

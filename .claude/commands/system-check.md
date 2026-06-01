@@ -1,0 +1,1 @@
+﻿Score your OS against the Four Cs (知 Knowing). Read and execute .claude/skills/system-check/SKILL.md.
