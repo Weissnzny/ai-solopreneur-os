@@ -7,8 +7,9 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ## 0.3.1 — 2026-06-01 — initial public release
 
-The first public, MIT-licensed cut of the AI Solopreneur OS — a weekly operating system for a
-one-person AI business, run inside Claude Code.
+The first public, source-available cut of the AI Solopreneur OS — a weekly operating system for a
+one-person AI business, run inside Claude Code. Released under the AI Solopreneur OS License v1.0
+(use and adapt for your own business; no redistribution, resale, or rebranding).
 
 - **Framework** — the **W_Counsel (军师)** doctrine: five pillars **势 · 律 · 令 · 谋 · 库**
   (Terrain · Rhythm · Morning Command · Grand Strategy · Arsenal) holding four loops

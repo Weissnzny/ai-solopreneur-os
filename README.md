@@ -8,7 +8,7 @@ A weekly operating system for a one-person business in the age of AI — run ins
 **W_Counsel (军师)** — a war-counsel — wired into your workspace, turning scattered effort into one
 campaign you can actually sustain.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![License: Source-Available (No Resale)](https://img.shields.io/badge/License-Source--Available%20(No%20Resale)-blue.svg)](./LICENSE)
 
 ---
 
@@ -89,4 +89,8 @@ double-click). You point it at this OS folder in the app's settings. See [`w-cou
 
 ## License
 
-MIT © 2026 Weiss Wisory PLT. See [`LICENSE`](./LICENSE). Use it, fork it, build your own OS on top.
+Source-available © 2026 Weiss Wisory PLT. See [`LICENSE`](./LICENSE).
+
+**Use it and adapt it to run your own business — even a commercial one.** What you may *not* do is
+redistribute, sell, rebrand, or repackage the OS itself as your own product. Keep the credit, build on
+top for yourself, but don't resell it. For redistribution or commercial-licensing permission, ask.

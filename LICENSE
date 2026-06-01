@@ -1,21 +1,72 @@
-MIT License
+AI Solopreneur OS License
+Version 1.0 — 2026
 
-Copyright (c) 2026 Weiss Wisory PLT
+Copyright (c) 2026 Weiss Wisory PLT. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This is a SOURCE-AVAILABLE license. It is NOT an open-source license and it is
+NOT the MIT License. The Software is made available so that you can use and adapt
+it for your own work — but not so that you can redistribute, sell, or rebrand it.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. DEFINITIONS
+   "Software" means the AI Solopreneur OS — all files in this repository,
+   including its documentation, frameworks, prompts, skills, agents, scripts, and
+   configuration — together with any modifications you make to them.
+   "You" / "Your" means the individual or single legal entity exercising rights
+   under this License.
+   "Your Business" means a business operated by You, including a one-person
+   business and a business operated for profit.
+   "Licensor" means Weiss Wisory PLT.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. GRANT OF RIGHTS
+   Subject to the conditions and restrictions below, the Licensor grants You a
+   worldwide, royalty-free, non-exclusive, non-transferable license to:
+   (a) use the Software for any purpose, including running it inside Your
+       Business, whether or not that business is operated for profit; and
+   (b) modify the Software and create derivative works of it for Your own
+       internal use within Your Business.
+
+3. CONDITIONS
+   (a) You must retain, in all copies and in any modified version You keep, the
+       copyright notice above, this License text, and all author and attribution
+       notices contained in the Software.
+   (b) Any modification You make must continue to identify the work as being
+       based on the AI Solopreneur OS by Weiss Wisory PLT.
+
+4. RESTRICTIONS
+   You may NOT, without the prior written permission of the Licensor:
+   (a) distribute, publish, share, sublicense, or otherwise make the Software
+       (in original or modified form, in whole or in substantial part) available
+       to any third party;
+   (b) sell, rent, lease, or charge any fee for the Software, or include it in
+       any product or service that is sold or otherwise monetized;
+   (c) rebrand, rename, repackage, or otherwise present the Software (in original
+       or modified form) as Your own product, framework, or work, or remove or
+       obscure its identity or attribution;
+   (d) offer the Software, or any service based substantially on it, to third
+       parties — including as a hosted, managed, or "as-a-service" offering; or
+   (e) use the names, logos, or trademarks of the Licensor — including
+       "AI Solopreneur OS", "W_Counsel", "军师", and "Weiss Wisory" — except as
+       strictly required to comply with the attribution conditions in Section 3.
+
+5. RESERVATION OF RIGHTS
+   All rights not expressly granted in this License are reserved by the Licensor.
+   No rights are granted by implication, estoppel, or otherwise.
+
+6. TERMINATION
+   This License terminates automatically if You breach any of its terms. Upon
+   termination You must stop using the Software and destroy all copies in Your
+   possession or control. Sections 4, 5, 7, and 8 survive termination.
+
+7. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+8. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+   DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR
+   OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+   OR OTHER DEALINGS IN THE SOFTWARE.
+
+For permissions beyond the scope of this License — including redistribution,
+resale, or commercial licensing of the Software itself — contact Weiss Wisory PLT.
