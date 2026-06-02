@@ -5,6 +5,24 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.4.2 — 2026-06-02 — two solopreneur-benefit callouts (Arsenal graph · content command center)
+
+Docs only — surface two payoffs that already existed in the OS but weren't sold. No behaviour change,
+no new API, key, or sync.
+
+- **`wiki/CLAUDE.md`** (§0) — new **"📖 Read your Arsenal however you like"** callout: the Arsenal is
+  plain markdown with `[[backlinks]]`, so any markdown editor (Obsidian / VS Code / plain text) renders
+  it as a second brain you can *see*. Ships **`wiki/wiki-knowledge-graph.png`** as proof, and ties the
+  graph back to the campaign skills (`/content` · `/caption` · `/carousel` · `/video-script`) — every
+  node is raw material those skills already know how to fire. Knowledge as ammunition, not decoration.
+- **`README.md`** — new **"🗓️ Your calendar becomes the content command center"** callout under the
+  "What you can run" table: with the `gws` connector, `/content-plan` plans a week, then (approval-gated)
+  pushes each topic onto your own Google Calendar as a dated, filterable `[CONTENT]` event linked to its
+  script Doc. Framed honestly — Calendar + Docs *are* the command center here, **not** a Sheet; no
+  auto-run claim.
+
+---
+
 ## 0.4.1 — 2026-06-02 — name + credit the LLM-knowledge-base pattern (库 Arsenal)
 
 Reframed the **库 Arsenal** (`wiki/`) as what it already is — a **personal LLM knowledge base** in the
