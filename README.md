@@ -66,7 +66,7 @@ Read the full doctrine: [`framework/ai-solopreneur-os.md`](./framework/ai-solopr
 | `/copywriting` | 战 Campaign | conversion copy for a landing / sales page |
 | `/humanize` | quality gate | strip the 29 AI tells, add real voice |
 | `/writing-beats` | 道 The Way | assemble a long-form piece beat by beat |
-| `ingest` · `ask` · `lint` (in `wiki/`) | 库 Arsenal | grow + query your knowledge base |
+| `ingest` · `ask` · `lint` (in `wiki/`) | 库 Arsenal | grow + query your personal LLM knowledge base |
 
 Four agents — **knowing · formation · campaign · the-way** — route work to these skills automatically.
 
@@ -99,6 +99,17 @@ you speak, it reasons against your own data folder, and a 3D strategist answers 
 
 Point it at this OS folder in its settings and the war-counsel runs *your* campaign. Full setup and the
 ToS-clean auth design live in [`w-counsel/README.md`](./w-counsel/README.md).
+
+---
+
+## Acknowledgements
+
+The **库 Arsenal** (`wiki/`) is a personal **LLM knowledge base** built on the pattern Andrej Karpathy
+described — raw sources compiled by an LLM into a linked `.md` wiki, an auto-maintained index for Q&A,
+and periodic health-check linting:
+[**@karpathy — "LLM Knowledge Bases"**](https://x.com/karpathy/status/2039805659525644595). The OS
+adapts it for a one-person business and adds an action-routing layer (build · story · content) on top.
+Inspired by, not affiliated with or endorsed by.
 
 ---
 

@@ -18,6 +18,13 @@ kept current — never re-derived from scratch on every question.
 **Your job:** curate sources, direct the analysis, ask good questions, decide what it means.
 **The OS's job:** everything else — summarising, cross-referencing, filing, flagging contradictions.
 
+> **Lineage.** The Arsenal follows the *personal LLM knowledge base* pattern Andrej Karpathy described
+> ([x.com/karpathy/status/2039805659525644595](https://x.com/karpathy/status/2039805659525644595)):
+> raw sources in `raw/` → an LLM *compiles* a `.md` wiki with backlinks → an auto-maintained `index.md`
+> + per-source summaries make Q&A work without heavy RAG → periodic "health checks" keep it clean. The
+> OS's `ingest` / `ask` / `lint` ops (§5) are that loop. What the Arsenal adds on top is **routing**
+> (§0, build / story / content) — the knowledge doesn't just sit in a vault, it arms the other pillars.
+
 ### The Arsenal routes three ways (the 库 pillar's purpose)
 The Arsenal is not a library you let gather dust. Its whole point is to **arm the other pillars**.
 Every useful thing in here should be ready to route into one of three outcomes — ask the W_Counsel

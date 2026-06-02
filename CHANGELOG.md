@@ -5,6 +5,22 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.4.1 — 2026-06-02 — name + credit the LLM-knowledge-base pattern (库 Arsenal)
+
+Reframed the **库 Arsenal** (`wiki/`) as what it already is — a **personal LLM knowledge base** in the
+sense Andrej Karpathy described (raw sources → an LLM-compiled `.md` wiki with backlinks → an
+auto-maintained `index.md` + summaries for Q&A → periodic health-check linting). The OS's existing
+`ingest` / `ask` / `lint` ops *are* that loop; what the Arsenal adds is the routing layer (build ·
+story · content). Docs/attribution only — no behaviour change.
+
+- **`wiki/overview.md`** — "What this is" now names the LLM-knowledge-base pattern and links the source.
+- **`wiki/CLAUDE.md`** — added a **Lineage** note (§0) mapping `ingest`/`ask`/`lint` to the pattern.
+- **`README.md`** — new **Acknowledgements** section backlinks
+  [@karpathy's post](https://x.com/karpathy/status/2039805659525644595); Arsenal table row reworded.
+- Honest framing throughout: *inspired by, not affiliated with or endorsed by.*
+
+---
+
 ## 0.4.0 — 2026-06-02 — /system-check now scores the 4 Loops
 
 The OS health check (`/system-check`, 知 Knowing) now grades your install against the **four loops
