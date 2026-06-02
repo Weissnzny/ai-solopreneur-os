@@ -25,8 +25,6 @@ kept current — never re-derived from scratch on every question.
 > OS's `ingest` / `ask` / `lint` ops (§5) are that loop. What the Arsenal adds on top is **routing**
 > (§0, build / story / content) — the knowledge doesn't just sit in a vault, it arms the other pillars.
 
-![The Arsenal compiled into a knowledge graph — Karpathy's pattern made visible: every page a node, every `[[backlink]]` a line](wiki-knowledge-graph.png)
-
 ### The Arsenal routes three ways (the 库 pillar's purpose)
 The Arsenal is not a library you let gather dust. Its whole point is to **arm the other pillars**.
 Every useful thing in here should be ready to route into one of three outcomes — ask the W_Counsel
@@ -47,8 +45,8 @@ I've read, here's the play for *this real situation*."
 > The OS reads and writes it, but so can any markdown editor you already trust.
 >
 > Point **[Obsidian](https://obsidian.md)** (or VS Code, or plain Notepad) at this folder and the same
-> files become a second brain you can *see* — that graph above is your own Arsenal rendered live. Every
-> ingest adds a node; the `[[links]]` between your pages draw themselves.
+> files become a second brain you can *see*. Every ingest adds a node; the `[[links]]` between your
+> pages draw themselves into a graph.
 >
 > That's the lineage made tangible: the durable asset isn't the tool, it's the knowledge you keep in
 > files you own.

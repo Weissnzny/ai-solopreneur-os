@@ -122,6 +122,8 @@ and periodic health-check linting:
 adapts it for a one-person business and adds an action-routing layer (build · story · content) on top.
 Inspired by, not affiliated with or endorsed by.
 
+![Karpathy's pattern made visible — a real 库 Arsenal compiled into a knowledge graph: every page a node, every backlink a line](wiki/wiki-knowledge-graph.png)
+
 ---
 
 ## License
