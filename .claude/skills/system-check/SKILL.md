@@ -24,7 +24,8 @@ Each loop asks one question. The check measures whether your install can actuall
 
 ## Execution
 ### Step 1 — Discover the shape (Glob + targeted Read, frontmatter only — fast)
-- **知 Knowing:** is `onboarding/intake.md` filled (no `{{ONBOARD}}` left)? does `voice.md` exist with a real sample? are `framework/` + `glossary.md` present? does `wiki/` hold real entries beyond the `example-*` files?
+- **Prior check (for the trend line):** glob `output/system-check/check-*.md`; if any exist, read the **newest** one and lift its `total` + four loop scores from its frontmatter. None yet → this run is the baseline.
+- **知 Knowing:** is `onboarding/intake.md` filled (no `{{ONBOARD}}` left)? does `voice.md` exist with a real sample? are `framework/` + `glossary.md` present? does `wiki/` hold real entries beyond the `example-*` files? **and** does `wiki/log.md` record a recent `lint` op — or is the Arsenal stocked but never health-checked?
 - **阵 Formation:** count `.claude/skills/*/SKILL.md`; count `.claude/agents/*.md` (the 4 loop-agents: knowing · formation · campaign · the-way); confirm each skill has a command shim; does `.env` hold any non-empty key, and which connectors in `connectors/README.md` are actually wired?
 - **战 Campaign:** recent files under `output/` or a recent `brain/board.json` `updated`; whether a daily routine (`/start-day` / `/shutdown`) is in use.
 - **道 The Way:** is `framework/operating-principles.md` present and unmodified? does the intake capture your *why* / non-negotiables (values, boundaries — not just what you sell)? is `/shutdown` part of the rhythm? does `voice.md` anchor a true voice?
@@ -41,15 +42,15 @@ leverage = (points lost) × (impact multiplier). Multipliers: intake unfilled �
 ### Step 4 — Output the report (chat, Markdown)
 ```
 # OS Check — {date}
-**Score: {total}/100** ({stage})
+**Score: {total}/100** ({stage}){ · ▲+{Δ} since {prevdate} | first baseline}
 Stages: 0-39 Foundation · 40-69 Built · 70-89 Compounding · 90-100 Autonomous
 
 ## Scoreboard
-知 Knowing    {bar}  {n}/25
-阵 Formation  {bar}  {n}/25
-战 Campaign   {bar}  {n}/25
-道 The Way    {bar}  {n}/25
-(bar = ## per 5 pts)
+知 Knowing    {bar}  {n}/25  {Δtag}
+阵 Formation  {bar}  {n}/25  {Δtag}
+战 Campaign   {bar}  {n}/25  {Δtag}
+道 The Way    {bar}  {n}/25  {Δtag}
+(bar = ## per 5 pts · Δtag = ▲+3 / ▼-2 / – vs last check; omit the whole column on first run)
 
 ## Strengths
 - {1-3 bullets}
@@ -59,16 +60,37 @@ Stages: 0-39 Foundation · 40-69 Built · 70-89 Compounding · 90-100 Autonomous
 2. ...
 3. ...
 
+## Keep it healthy
+{Only when the Arsenal is stocked but wiki/log.md shows no recent `lint`:}
+- Your Arsenal has real entries but hasn't been linted lately — run `lint` in `wiki/` to catch contradictions, stale claims, and orphans before they compound.
+{If a recent lint exists, omit this section (or one line: "Arsenal linted {date} — clean").}
+
 ## Suggested next: {single most leveraged action}
 ```
+**Trend line:** if a prior check was found, append `· ▲+{Δ} since {prevdate}` (or `▼{Δ}` / `· level since {prevdate}`) to the Score line, and a per-loop `{Δtag}`. First run: write `first baseline` and omit the Δ column — then say one line: "Re-run after your next fixes to watch it move."
 
 ### Step 5 — Offer to save
 Ask: "Save this to `output/system-check/check-{date}.md` to track over time?" Save only if yes. That's the only write.
+Save with a small **frontmatter block first**, so the next run can read the trend deterministically:
+```
+---
+date: {YYYY-MM-DD}
+total: {total}
+knowing: {n}
+formation: {n}
+campaign: {n}
+the_way: {n}
+---
+{the report body from Step 4}
+```
+(Step 1 reads exactly these keys from the newest file. Filename `check-{YYYY-MM-DD}.md` keeps "newest" sortable.)
 
 ## Notes
 - Read-only by default; honest, not generous (most fresh installs land 40-70).
 - Don't suggest skills that aren't installed.
 - The four loops are a cycle, not a ladder — a healthy OS scores across all four, not 100 on one.
+- **Trend:** deltas compare against the *newest* saved check only (not an average). No prior file → this run is the baseline, no Δ shown. Reading the prior file stays within the frontmatter-only, read-only budget.
+- **Lint nudge ≠ a scored gap.** It's maintenance, not points — a stocked Arsenal that's never linted is a silent quality risk the structural score can't catch. Only raise it when `wiki/` is stocked beyond examples and `wiki/log.md` shows no recent `lint`.
 - Speed: frontmatter reads only, under ~60s.
 
 ## Output Standard

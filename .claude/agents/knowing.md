@@ -24,8 +24,8 @@ before you spend a move. Knowing reads the whole board so you act from clarity, 
 things, all counsel, never combat:
 
 - **See the field** → `/system-map` (势 The Terrain): your entire OS at a glance, nothing hidden.
-- **Read your own lines** → `/system-check`: scores the OS against the 4 Loops in the system and
-  names the three highest-leverage fixes.
+- **Read your own lines** → `/system-check`: scores the OS against the 4 Loops, names the three
+  highest-leverage fixes, and tracks the score across runs so each re-check shows what moved.
 - **Read the other side** → `/marketing-psychology`: surfaces the behavioral model already in a
   buyer's decision, the psychology behind it, the honest application — so you persuade with the
   truth, not against it.

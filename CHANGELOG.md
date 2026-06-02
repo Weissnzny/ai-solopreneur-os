@@ -5,6 +5,26 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.4.3 — 2026-06-02 — /system-check tracks your score over time + nudges Arsenal lint
+
+Two additive upgrades to the OS health check (`/system-check`, 知 Knowing). Scoring rubric (4 loops ×
+25) and read-only discipline are unchanged; still frontmatter-only, under ~60s.
+
+- **Trend on re-run.** It now reads the newest saved check in `output/system-check/` and shows the
+  **±delta per loop and total** (e.g. `72/100 · ▲+8 since 2026-05-20`); first run reads `first baseline`.
+  Saved reports carry a small frontmatter block (`total` · `knowing` · `formation` · `campaign` ·
+  `the_way`) so the next run reads the trend deterministically. Delivers the skill's standing promise —
+  *"re-run to watch the score climb"* — which until now it never actually measured.
+- **Lint nudge.** When the Arsenal (`wiki/`) is stocked beyond examples but `wiki/log.md` shows no
+  recent `lint`, the report adds a **"Keep it healthy"** line suggesting `lint` in `wiki/`. It's
+  maintenance, not a scored gap — a stocked-but-unlinted Arsenal is a quality risk the structural score
+  can't see. Ties the structural OS check to the Arsenal's own content health-check.
+
+Files: **`skills/system-check/SKILL.md`** (Steps 1, 4, 5 + Notes), **`agents/knowing.md`** (the
+`/system-check` line now mentions tracking across runs). No new API, key, or sync.
+
+---
+
 ## 0.4.2 — 2026-06-02 — two solopreneur-benefit callouts (Arsenal graph · content command center)
 
 Docs only — surface two payoffs that already existed in the OS but weren't sold. No behaviour change,
