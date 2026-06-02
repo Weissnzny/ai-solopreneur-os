@@ -39,6 +39,28 @@ I've read, here's the play for *this real situation*."
 
 ---
 
+> ### 📖 Read your Arsenal however you like
+>
+> This whole folder is plain markdown with `[[backlinks]]`. Nothing proprietary, nothing locked in.
+> The OS reads and writes it, but so can any markdown editor you already trust.
+>
+> Point **[Obsidian](https://obsidian.md)** (or VS Code, or plain Notepad) at this folder and the same
+> files become a second brain you can *see*. Every ingest adds a node; the `[[links]]` between your
+> pages draw themselves into a graph.
+>
+> ![The Arsenal as a knowledge graph in Obsidian — every page a node, every backlink a line](wiki-knowledge-graph.png)
+>
+> That picture is §0 made visible, and it's the bet Karpathy keeps making about plain text and owning
+> your own context: the durable asset isn't the tool, it's the knowledge you keep in files you own.
+>
+> **Why it pays off for a one-person business:** every node on that graph is raw material your campaign
+> skills already know how to fire. Say "route this from the Arsenal" and a teaching becomes a post,
+> a carousel, or a script in seconds — the same `/content`, `/caption`, `/carousel`, and `/video-script`
+> you run daily, now pulling from a base that compounds instead of a blank page. The more you ingest,
+> the more you have to ship.
+
+---
+
 ## 1. The three layers
 1. **Raw sources** (`raw/`) — immutable. Notes, transcripts, clipped articles, threads, call notes. Read these; **never** edit them. Source of truth.
 2. **The wiki** (`coaches/`, `concepts/`, `scenarios/`, `sources/`, `syntheses/`) — markdown pages the OS owns entirely.
