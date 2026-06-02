@@ -54,7 +54,7 @@ Read the full doctrine: [`framework/ai-solopreneur-os.md`](./framework/ai-solopr
 |---|---|---|
 | `/kick-off` | first run | onboarding interview — teach the OS who you are + how you sound |
 | `/system-map` | 势 Terrain | one-glance map of your whole OS |
-| `/system-check` | 知 Knowing | score your OS against the Four Cs + top 3 fixes |
+| `/system-check` | 知 Knowing | score your OS against the 4 Loops + top 3 fixes |
 | `/start-day` · `/shutdown` | 律 · 令 | your daily morning kickoff + evening wrap |
 | `/brain` | 阵 Formation | a local second-brain board you talk to |
 | `/find-skill` | 阵 Formation | find a trusted Claude Code skill before building one |

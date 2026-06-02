@@ -5,6 +5,26 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.4.0 — 2026-06-02 — /system-check now scores the 4 Loops
+
+The OS health check (`/system-check`, 知 Knowing) now grades your install against the **four loops
+(四谋)** the rest of the doctrine already runs on — **知 Knowing · 阵 Formation · 战 Campaign · 道 The
+Way**, 25 points each — instead of the old, separate **Four Cs** (Context · Connections · Capabilities
+· Cadence). One vocabulary across the whole OS: the loop you score is the loop you run.
+
+- **`system-check/SKILL.md`** — rubric, discovery steps, scoring weights, gap multipliers, and the
+  scoreboard relabelled to the four loops. Each loop now maps to the question it answers (e.g. 道 The
+  Way → *"will this still feel like mine?"* → operating-principles installed, your *why* captured, a
+  `/shutdown` close, no-fabrication discipline). Scoring stays out of 100; stages unchanged.
+- **`commands/system-check.md`** — shim description updated ("score your OS against the 4 Loops").
+- **`agents/knowing.md`** — rewritten in the W_Counsel (军师) voice; the `/system-check` line now
+  reads "scores the OS against the 4 Loops."
+- **`README.md`** — the "What you can run" table now says "score your OS against the 4 Loops."
+
+No behavioural change to any other skill; read-only health check, no new API or sync.
+
+---
+
 ## 0.3.1 — 2026-06-01 — initial public release
 
 The first public, source-available cut of the AI Solopreneur OS — a weekly operating system for a

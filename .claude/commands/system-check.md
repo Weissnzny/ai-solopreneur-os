@@ -1,1 +1,1 @@
-﻿Score your OS against the Four Cs (知 Knowing). Read and execute .claude/skills/system-check/SKILL.md.
+﻿Score your OS against the 4 Loops (知 Knowing). Read and execute .claude/skills/system-check/SKILL.md.
