@@ -5,6 +5,19 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.4.5 — 2026-06-06 — W_Counsel doc current with the v0.43 shell (history, model toggle, 查库)
+
+Documentation-only: refreshed `w-counsel/README.md` again as the shell moved from v0.37 → **v0.43**.
+No OS skill/framework/Arsenal change.
+
+- **Added to the controls doc:** ⚡ Sonnet / 🧠 Opus **model toggle** + a **$ cost** readout; **📜 past
+  councils** (every conversation saved on disk, reopen with transcript repainted, survives restarts);
+  **formatted (markdown) replies**; **skill search + recently-used**; and the context meter now notes
+  **auto-compaction** (summarize-and-continue) instead of a hard reset.
+- **🏯 查库 / Arsenal search:** documented the new built-in — if the content folder (or a settings-configured
+  **Arsenal folder**) carries a `wiki-search` tool, a 查库 pill lets 军师 search that wiki and answer with
+  `[[page]]` citations, read-only.
+
 ## 0.4.4 — 2026-06-06 — W_Counsel doc brought current with the v0.37.0 shell
 
 Documentation-only: refreshed `w-counsel/README.md` (the canonical description of the optional W_Counsel

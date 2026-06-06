@@ -40,10 +40,21 @@ The shell is one screen: the 3D 军师 on the left, a chat panel on the right.
 - **⚔ Skills tray (OS layout only).** A tray of the OS's skills grouped by the four pillars — **战 Campaign ·
   道 The Way · 知 Knowing · 阵 Formation**. Tap a category to reveal its pills; **hover any tab or pill for a
   short description**; tap a pill to drop `/<skill> ` into the composer, then speak or type the rest. Only
-  skills that exist on disk show, so the tray mirrors *your* installed OS.
-- **Context-window meter.** A small gauge shows how full the model's context is; it turns **amber at ~50%**
-  and **pulses red at ~80%** as a reminder to press **↺** and start a fresh round. Visual only — it never
-  resets on its own.
+  skills that exist on disk show, so the tray mirrors *your* installed OS. A **search box** filters skills
+  across all pillars, and a **recent** row surfaces your last-used.
+- **🏯 查库 / Arsenal search.** If your content folder (or a separately-configured **Arsenal folder** in
+  settings) carries a `tools/wiki-search.py`, a **查库** pill appears: tap it, ask a question, and 军师
+  searches that wiki and answers **with `[[page]]` citations** — read-only, never writing to it.
+- **Context-window meter + cost.** A small gauge shows how full the model's context is (**amber ~50% · red
+  ~80%**); when it fills, 军师 **auto-compacts** (summarizes-and-continues) so the council keeps going —
+  **↺** still gives a clean slate. A tiny **$ readout** beside it tracks spend this council.
+- **⚡ Sonnet / 🧠 Opus toggle.** A voicebar switch picks fast voice-chat (Sonnet) vs deep counsel (Opus)
+  per turn; the choice is remembered.
+- **📜 Past councils.** Every conversation is saved on disk (by the Agent SDK), so the **📜** button reopens
+  any previous council with its transcript repainted — it survives restarts. Each launch starts fresh; history
+  is one tap away.
+- **Formatted replies.** 军师's answers render light **markdown** (bold, lists, code, links) in the chat
+  panel; the spoken voice is unaffected.
 
 ## Connecting Claude (how the brain authenticates) — ToS-clean
 The shell uses **your own Claude**, authenticated through Anthropic's own official client (no embedded
