@@ -17,9 +17,33 @@ It documents how the optional W_Counsel shell connects to **this installed OS**.
 ## What W_Counsel is
 - A small local app: you talk (mic), it thinks against your data folder, and a 3D figure speaks back.
 - **Brain:** the Claude Agent SDK. **Voice:** Edge Read-Aloud voices via Node (`msedge-tts`) — no Python.
+  Six voices (mature 中文 narration, Cantonese, Taiwan, English) with a live picker; the default voice
+  follows the **中文 / EN** language you pick at setup.
 - **Look:** the Weiss design system — brand greens on black, Apple-glass panels, the transparent Weiss logo.
 - **Boundary (hard):** it may freely edit **only inside its data folder** (your content dir); everything
   else on your machine is read-only. This mirrors `framework/operating-principles.md` §6.
+- **Layout-aware:** it detects whether your content folder is a **flat starter** or a full **AI Solopreneur
+  OS** (it looks for `wiki/` + `onboarding/intake.md`) and reads/ingests into the right shape — so pointing
+  it at this installed OS Just Works.
+
+## In the app — the controls
+The shell is one screen: the 3D 军师 on the left, a chat panel on the right.
+
+- **Composer.** Type, or hold **`Alt`+`V`** to talk (press again to stop & send). **`Enter`** sends,
+  **`Shift`+`Enter`** is a newline. Each message has a **✎ edit** (editing *your* line re-asks; editing
+  军师's just corrects the text).
+- **📎 Attachments — read once, never saved.** Attach a PDF / doc / image / data file; it rides along with
+  the next message only, is read for that turn, and the temp copy is deleted afterward. Nothing lands in
+  your data folder.
+- **Interrupt cleanly.** **🔇 / `Esc`** stops the *voice* only (军师 keeps thinking & working); **⏹ STOP**
+  (shown while a turn runs) aborts the *whole* turn; **↺** starts a fresh round (new context).
+- **⚔ Skills tray (OS layout only).** A tray of the OS's skills grouped by the four pillars — **战 Campaign ·
+  道 The Way · 知 Knowing · 阵 Formation**. Tap a category to reveal its pills; **hover any tab or pill for a
+  short description**; tap a pill to drop `/<skill> ` into the composer, then speak or type the rest. Only
+  skills that exist on disk show, so the tray mirrors *your* installed OS.
+- **Context-window meter.** A small gauge shows how full the model's context is; it turns **amber at ~50%**
+  and **pulses red at ~80%** as a reminder to press **↺** and start a fresh round. Visual only — it never
+  resets on its own.
 
 ## Connecting Claude (how the brain authenticates) — ToS-clean
 The shell uses **your own Claude**, authenticated through Anthropic's own official client (no embedded
@@ -44,6 +68,12 @@ you are and fills `profile.md`; no one's private data is shipped.
 folder (the packaged build has a native folder-picker). The app also honors an environment-variable
 fallback if you prefer to set it that way — the exact variable name is documented in the W_Counsel
 app's own README. Set it in the *app's* environment, not in this OS's `.env`.
+
+**Multiple W_Counsel profiles (switch arsenals).** If you run more than one console — say a separate
+content folder per brand or business — the ⚙ settings let you **save named profiles** (a name + a folder
+path) and switch the active one from a dropdown. Switching re-reads the new folder's shape (flat ↔ OS),
+refreshes the skill tray, and starts a fresh round so 军师 re-reads that arsenal cleanly. Profiles are
+stored locally in the app's config; no data is copied or shared between them.
 
 ## Feed it your knowledge (库 The Arsenal)
 W_Counsel can **ingest on command**: say **`入库` / "ingest"** with text, a file, or a link and it writes

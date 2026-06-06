@@ -5,7 +5,20 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
-## 0.4.3 — 2026-06-02 — /system-check tracks your score over time + nudges Arsenal lint
+## 0.4.4 — 2026-06-06 — W_Counsel doc brought current with the v0.37.0 shell
+
+Documentation-only: refreshed `w-counsel/README.md` (the canonical description of the optional W_Counsel
+shell) to match the shipped app, which had moved several versions ahead of the doc. No OS skill, framework,
+or Arsenal change.
+
+- **New in the doc:** an "In the app — the controls" section (composer + `Alt+V` voice, 📎 read-once
+  attachments, 🔇/`Esc` mute-voice vs ⏹ STOP vs ↺ new-round, the ⚔ skills tray with the four pillars and
+  **hover descriptions**, and the **context-window meter** that warns at ~50% / ~80%).
+- **Profiles:** documented the **multiple-W_Counsel profile switcher** — save named arsenals and switch the
+  active content folder from ⚙ settings (re-reads layout, refreshes the tray, starts a fresh round).
+- **Caught up:** voice picker + language-driven default voice; flat ↔ OS **layout auto-detect**.
+- Keeps the deliberate "this folder does not vendor the heavy app" design — the shell's code still lives in
+  its own app folder; this is the canonical *description*, now accurate to **W_Counsel v0.37.0**.
 
 Two additive upgrades to the OS health check (`/system-check`, 知 Knowing). Scoring rubric (4 loops ×
 25) and read-only discipline are unchanged; still frontmatter-only, under ~60s.
