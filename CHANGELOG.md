@@ -5,6 +5,19 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.5.0 — 2026-06-10 — W_Counsel v0.44.0 app now vendored + doctrine flowchart
+
+First release where the **full W_Counsel shell ships in the repo** (previous releases only documented
+it). The optional 军师 app is now vendored under [`w-counsel/app/`](w-counsel/app/) — Node server + web
+frontend + 3D 诸葛亮 model — runnable with `cd w-counsel/app && npm install && npm start`.
+
+- **Vendored the v0.44.0 app shell:** clean import — no `node_modules`, no personal paths/keys, content
+  seeded from `content-template/` on first run into the user's own (gitignored) data dir.
+- **Interface fix:** masthead language toggle is now a pill (中文 / EN no longer overflow or misalign
+  next to the 📜 / ⚙ buttons).
+- **Doctrine flowchart:** added an ASCII 五柱 · 四谋 (知阵战道) diagram to `w-counsel/app/README.md`,
+  sourced from `framework/ai-solopreneur-os.md`.
+
 ## 0.4.5 — 2026-06-06 — W_Counsel doc current with the v0.43 shell (history, model toggle, 查库)
 
 Documentation-only: refreshed `w-counsel/README.md` again as the shell moved from v0.37 → **v0.43**.
