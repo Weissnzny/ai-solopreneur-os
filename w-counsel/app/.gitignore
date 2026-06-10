@@ -1,0 +1,14 @@
+node_modules/
+# local secrets / per-install config — never commit
+junshi-config.local.json
+# per-install user data dir (seeded from content-template on first run)
+content/
+# packaged build output
+dist/
+# build / temp artifacts
+_tex/
+*.bak
+sample-*.mp3
+smoke-tts.mp3
+junshi-icon-preview.png
+.DS_Store

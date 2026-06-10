@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>军师 · 研究院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Quicksand:wght@400..700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="/models/zhuge/portrait.png" />
+  <!-- Three.js (UMD global) + OrbitControls -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+  <!-- ── 3D stage: the 军师 ── -->
+  <div id="stage-wrap">
+    <div id="aura"></div>
+    <canvas id="three3d"></canvas>
+    <div id="status-chip">连接中…</div>
+    <!-- skills (OS layout only): floats top-right over the 军师 figure, closed by default -->
+    <div id="skill-corner">
+      <button id="skills-toggle" class="hidden" data-i18n-title="skills_toggle_t" title="技能 / Skills"><span data-i18n="skills_toggle">⚔ 技能</span></button>
+      <div id="skilltray" class="hidden">
+        <input id="skill-search" type="text" class="skill-search" data-i18n-ph="skill_search" placeholder="搜索技能 · search" autocomplete="off" spellcheck="false" />
+        <div id="skill-recent" class="hidden"></div>
+        <div id="skill-tabs"></div>
+        <div id="skill-pills" class="hidden"></div>
+      </div>
+    </div>
+    <div id="orbit-hint" data-i18n="orbit_hint">拖动旋转 · 滚轮缩放</div>
+  </div>
+
+  <!-- ── council panel ── -->
+  <aside id="panel">
+    <header id="masthead">
+      <img id="brand-logo" class="brand-logo" src="/brand/weiss-transparent-dark.png" alt="Weiss AI" />
+      <div class="titles">
+        <div id="title">军师 <span id="ver" class="ver"></span></div>
+        <div class="sub" data-i18n="sub">研究院 · 军火库已就位</div>
+      </div>
+      <button id="lang-btn" class="gear lang-btn" data-i18n-title="lang_btn_t" title="语言 · language">EN</button>
+      <button id="history-btn" class="gear" data-i18n-title="hist_btn_t" title="历史军议 · past councils">📜</button>
+      <button id="settings-btn" class="gear" data-i18n-title="settings_btn_t" title="设置 · 连接 Claude">⚙</button>
+    </header>
+
+    <div id="transcript"></div>
+
+    <div id="voicebar">
+      <label data-i18n="voice_label">声线</label>
+      <select id="voice">
+        <option value="zh-CN-YunyangNeural" selected>云扬 · 沉稳播报(成熟旁白)</option>
+        <option value="zh-CN-YunjianNeural">云健 · 浑厚解说(有气势)</option>
+        <option value="en-US-GuyNeural">Guy · English narrator (deep · 近云健)</option>
+        <option value="zh-CN-YunxiNeural">云希 · 阳光清亮(偏年轻)</option>
+        <option value="zh-HK-WanLungNeural">韵龙 · 粤语男声</option>
+        <option value="zh-TW-YunJheNeural">允哲 · 台湾男声</option>
+      </select>
+      <!-- model depth toggle: ⚡ Sonnet (fast) ↔ 🧠 Opus (deep) -->
+      <button id="model-toggle" class="model-toggle" title="模型 · model">⚡ Sonnet</button>
+      <!-- context-window meter: how full the model's context is (reset reminder). hidden until first turn -->
+      <div id="ctx-meter" class="ctx-meter hidden" title="已用上下文 · context used">
+        <span class="ctx-bar"><span class="ctx-fill"></span></span>
+        <span class="ctx-label">上下文 0%</span>
+      </div>
+      <!-- running cost this council; hidden until the first turn returns -->
+      <span id="cost-readout" class="cost-readout hidden" title="本局累计花费 · spent this council">$0.000</span>
+    </div>
+
+    <!-- attached files (read once, not saved) -->
+    <div id="attach-bar" class="hidden"></div>
+
+    <div id="composer">
+      <input id="file-input" type="file" multiple accept=".pdf,.txt,.md,.csv,.json,.doc,.docx,.png,.jpg,.jpeg,.gif,.webp,image/*" hidden />
+      <button id="attach" class="icon" data-i18n-title="attach_t" title="附上文件 — 文档 / PDF / 图片(只读这一轮,不保存)">📎</button>
+      <button id="mic" class="icon" data-i18n-title="mic_t" title="点击说话 · 或按 Alt+V 开始/结束">🎙️</button>
+      <textarea id="text-input" rows="1" data-i18n-ph="composer_ph" placeholder="对军师说话…"></textarea>
+      <button id="stop" class="icon hidden" data-i18n-title="stop_t" title="停止 — 打断军师思考办事(Ctrl/Esc·Esc 只停语音)">⏹</button>
+      <button id="hush" class="icon" data-i18n-title="hush_t" title="只停语音 — 军师继续思考办事(Esc)">🔇</button>
+      <button id="send" class="icon send" data-i18n-title="send_t" title="发送 (Enter)">➤</button>
+      <button id="reset" class="icon" data-i18n-title="reset_t" title="新的一局">↺</button>
+    </div>
+    <div id="hint" data-i18n-html="hint"><kbd>Alt</kbd>+<kbd>V</kbd> 说话(再按结束) · <kbd>Enter</kbd> 发送 · 📎 附文件(只读一轮) · ⏹ 停止思考 · 🔇/<kbd>Esc</kbd> 只停语音 · ✎ 编辑(改我的话会重发)</div>
+  </aside>
+
+  <!-- first-run / settings: connect your Claude -->
+  <div id="key-modal" class="hidden">
+    <div class="key-card">
+      <div class="lang-toggle">
+        <button data-lang="zh">中文</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <img class="key-seal" src="/brand/weiss-w.png" alt="Weiss AI" />
+      <h3 id="t-title" data-i18n="title"></h3>
+      <p id="t-desc" data-i18n="desc"></p>
+      <div id="key-status"></div>
+      <div class="key-btns">
+        <button id="key-login" class="primary" data-i18n="login"></button>
+        <button id="key-skip" data-i18n="done"></button>
+      </div>
+      <details class="key-adv">
+        <summary id="t-guide-sum" data-i18n="guideSum"></summary>
+        <div id="t-guide" class="key-guide" data-i18n-html="guide"></div>
+      </details>
+      <details class="key-adv">
+        <summary id="t-adv" data-i18n="adv"></summary>
+        <input id="key-input" type="password" placeholder="sk-ant-..." autocomplete="off" spellcheck="false" />
+        <div class="key-adv-btns">
+          <button id="key-save" data-i18n="save"></button>
+          <button id="key-clear" data-i18n="clear"></button>
+        </div>
+        <a href="https://console.anthropic.com/settings/keys" target="_blank" id="t-link" class="key-link" data-i18n="link"></a>
+      </details>
+
+      <!-- W_Counsel profiles: switch which arsenal (content folder) the 军师 reads -->
+      <details class="key-adv" id="prof-adv">
+        <summary id="t-prof-sum" data-i18n="profSum"></summary>
+        <div id="prof-active" class="prof-active"></div>
+        <div class="prof-switch">
+          <select id="prof-select"></select>
+          <button id="prof-remove" class="prof-x" data-i18n-title="prof_remove_t" title="移除此档案 · remove">✕</button>
+        </div>
+        <input id="prof-name" type="text" data-i18n-ph="prof_name_ph" placeholder="名称 · name (e.g. Brand A)" autocomplete="off" />
+        <input id="prof-dir" type="text" data-i18n-ph="prof_dir_ph" placeholder="文件夹路径 · folder path" autocomplete="off" spellcheck="false" />
+        <div class="key-adv-btns">
+          <button id="prof-add" data-i18n="profAdd"></button>
+        </div>
+        <div id="prof-status" class="prof-status"></div>
+      </details>
+
+      <!-- 查库 Arsenal folder: where the research wiki + wiki-search.py live -->
+      <details class="key-adv" id="arsenal-adv">
+        <summary id="t-arsenal-sum" data-i18n="arsenalSum"></summary>
+        <div id="arsenal-active" class="prof-active"></div>
+        <input id="arsenal-dir" type="text" data-i18n-ph="arsenal_dir_ph" placeholder="研究院 wiki 文件夹 · Arsenal folder" autocomplete="off" spellcheck="false" />
+        <div class="key-adv-btns">
+          <button id="arsenal-save" data-i18n="arsenalSave"></button>
+        </div>
+        <div id="arsenal-status" class="prof-status"></div>
+      </details>
+    </div>
+  </div>
+
+  <!-- past councils (history): reopen a previous session, transcript repainted -->
+  <div id="history-modal" class="hidden">
+    <div class="hist-card">
+      <div class="hist-head">
+        <span data-i18n="hist_title">历史军议 · Past councils</span>
+        <button id="hist-close" class="hist-x" data-i18n-title="hist_close_t" title="关闭 · close">✕</button>
+      </div>
+      <div id="hist-list" class="hist-list"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

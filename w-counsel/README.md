@@ -9,8 +9,9 @@ Everything in this repo works in plain Claude Code with no mascot at all. W_Coun
 shell**: a voice + 3D talking-strategist (诸葛 / Zhuge Liang) that you *speak to*, running the same OS
 underneath. ("W" is for Weiss; 军师 is the Chinese name.)
 
-This folder does **not** vendor the heavy app (a 3D model + a local server are large and change often).
-It documents how the optional W_Counsel shell connects to **this installed OS**.
+The full app is vendored under [`app/`](app/) — a Node server + web frontend + 3D model. To run it:
+`cd app && npm install && npm start`, then open `http://localhost:5174` (see [`app/README.md`](app/README.md)).
+This doc explains how the optional W_Counsel shell connects to **this installed OS**.
 
 ---
 
