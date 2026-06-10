@@ -11,6 +11,45 @@ speaks back** — the same 军师 you talk to in Claude Code, now with a face an
    (口型随声音动)
 ```
 
+## The doctrine it serves — AI Solopreneur OS (五柱 · 四谋)
+
+W_Counsel is the face; this is the doctrine underneath. Five pillars you operate from, and
+inside the fourth, four loops you run every week. Full text: [`../../framework/ai-solopreneur-os.md`](../../framework/ai-solopreneur-os.md).
+
+```
+   W_Counsel · 军师 (jūnshī) — your war-counsel, wired into Claude Code.
+   诸葛亮 never swung a sword: he read the ground, set the formations,
+   picked the moment, and held to a cause. That is what this OS is.
+                              │
+                              ▼
+┌─ 五柱 · THE FIVE PILLARS — the surfaces you operate from, day to day
+│
+│   势  Terrain          see the whole board           →  /system-map
+│   律  Rhythm           your daily operating cadence  →  /start-day · /shutdown
+│   令  Morning Command  issue the day's orders         →  /start-day
+│   谋  Grand Strategy   the doctrine you run weekly    →  四谋, the Four Loops ▼
+│   库  Arsenal          knowledge that arms you        →  the wiki → build · story · content
+│
+└─ 谋 carries the doctrine ▼
+
+┌─ 四谋 · THE FOUR LOOPS — run all four, every week  (a cycle, not a ladder)
+│
+│   知 Knowing  ──►  阵 Formation  ──►  战 Campaign  ──►  ↻ back to 知
+│
+│   知 · Knowing    kill the noise first — know yourself, know the field
+│   阵 · Formation  build what holds the line — systems, automations, agents
+│   战 · Campaign   ship real work into the arena — receipts, not plans
+│
+│   ════════════  道 · THE WAY — the through-line  ════════════
+│   道 · The Way    hold to your cause: family · values · evenings · your name.
+│                   in classical strategy 道 comes first — it is why people
+│                   follow, and what makes the other three last past a quarter.
+│
+└─ 我不卖焦虑，我装系统。 · I don't sell anxiety. I install systems.
+
+   weekly rhythm:  Mon 阵 · Tue 知 · Wed 道 · Thu 战 · Fri 阵 · Sat flagship · Sun rest
+```
+
 ## Install / Run — three ways
 
 **1 · Desktop app (easiest)** — double-click **`军师.app`** on the Desktop. (First time, double-click
