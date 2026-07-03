@@ -70,16 +70,17 @@ Read the full doctrine: [`framework/ai-solopreneur-os.md`](./framework/ai-solopr
 
 Four agents — **knowing · formation · campaign · the-way** — route work to these skills automatically.
 
-### 🗓️ Your calendar becomes the content command center
+### 🗓️ Optional: your calendar becomes the content command center
 
-Wire the [Google Workspace connector](./connectors/README.md) and `/content-plan` stops being a doc you
-forget. It plans a week of topics, then — only after you confirm — drops each one onto your **own Google
-Calendar** as a dated, filterable `[CONTENT]` event, each linked to its script Doc. One place, the one
-you already open every morning: what you're posting, which day, and the script ready to go. It reads the
-week first so it never double-books you, and it writes nothing without your "confirm."
+`/content-plan` works on its own — it plans a week of topics and writes a script doc per day under
+`output/`. **Wire an optional calendar connector** (a public Google Calendar MCP — see
+[`connectors/README.md`](./connectors/README.md)) and it goes one step further: after you confirm, it
+drops each topic onto your **own Google Calendar** as a dated, filterable `[CONTENT]` event linked to
+its script. It reads the week first so it never double-books you, and it writes nothing without your
+"confirm."
 
-For a one-person business that's the whole game: the plan lives where you actually look, not in a tab
-you lose.
+No connector, no problem — you still get the plan and the docs; you just copy them to your calendar
+yourself. With one wired, the plan lives where you already look every morning instead of a tab you lose.
 
 ---
 

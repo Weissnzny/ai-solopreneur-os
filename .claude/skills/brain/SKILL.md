@@ -51,8 +51,9 @@ Trigger: "add to my brain", "move X to doing", "make Y urgent", "set due…", "r
 ## Mode 2 — Morning planning
 Trigger: "plan my morning", "what should I focus on".
 1. Read the board.
-2. Read today's calendar (read-only) if the Google Workspace connector is wired:
-   `gws calendar +agenda --today` (or `--days 3`).
+2. Read today's calendar (read-only) if a calendar connector is wired (a Google Calendar MCP, or any
+   calendar tool available to Claude Code — see `connectors/README.md`; the author's `gws` CLI does it
+   with `gws calendar +agenda --today`). Skip this step if nothing is wired.
 3. Reconcile and surface: overdue (real dates only), free-text-due items verbatim, lane overload
    (>5 in `doing`), and calendar conflicts. Propose **1-3 focus** items, each tied to a month outcome.
 4. *Offer* (don't auto-apply) to write the chosen focus back (mark urgent / re-slot). If yes, go via

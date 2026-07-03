@@ -36,7 +36,8 @@ to Step 1. On every later run the intake is already filled, so skip straight to 
 
 ### Step 1 — Orient
 Pull whatever daily inputs you keep: a morning briefing file if you generate one, and your calendar
-(`gws calendar +agenda --today` if the Google Workspace connector is wired — see `connectors/`).
+(read it via a calendar connector if one is wired — a Google Calendar MCP, or the author's `gws` CLI
+with `gws calendar +agenda --today`; see `connectors/`).
 Hand over **the 3 things that actually matter today**, not a full recap.
 
 ### Step 2 — Scan today

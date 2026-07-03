@@ -9,33 +9,36 @@ them; the OS ships no keys.** Put every secret in `.env` (copied from `.env.exam
 
 ---
 
-## 1. Google Workspace — `gws` (recommended)
+## 1. Google Calendar (recommended) — a calendar MCP server
 
-A command-line tool that lets the OS read and write **your own** Gmail, Drive, Calendar, Sheets, and
-Docs. This is what powers the calendar reads in `/start-day` and `/brain`, and any Doc/Sheet export
-you wire later.
+This is what turns `/content-plan` into a command center and lets `/start-day` and `/brain` read your
+day. The OS is **calendar-connector-agnostic**: it works with any MCP server that exposes read/create
+calendar tools to Claude Code. You don't need a special build from the author — install a public one.
 
-**Install**
-- Get the `gws` CLI (a standalone Google Workspace CLI) and put it on your PATH.
-- Confirm it runs: `gws --help`.
+**The easy path — a public Google Calendar MCP**
 
-**Authenticate (one time)**
-1. In [Google Cloud Console](https://console.cloud.google.com/), create a project and enable the APIs
-   you want (Gmail, Drive, Calendar, Sheets, Docs).
-2. Create an **OAuth client** (Desktop app). Note the **Client ID** and **Client Secret**.
-3. Run the CLI's auth flow to mint a **refresh token** (it opens a browser, you approve scopes).
-4. Put all three in `.env`:
-   ```
-   GOOGLE_CLIENT_ID=...
-   GOOGLE_CLIENT_SECRET=...
-   GOOGLE_REFRESH_TOKEN=...
-   ```
+A well-maintained open-source option is
+[**nspady/google-calendar-mcp**](https://github.com/nspady/google-calendar-mcp), runnable straight from
+npm with no compile step:
 
-**Smoke test:** `gws calendar +agenda --today` should print today's events. If it does, `/start-day`
-and `/brain` can read your calendar.
+1. **Google Cloud (one time):** in [Google Cloud Console](https://console.cloud.google.com/), create a
+   project, enable the **Google Calendar API**, and create an **OAuth client (Desktop app)** — you get a
+   credentials JSON. (This OAuth step is unavoidable: it's how Google lets *your own* app touch *your
+   own* calendar. Do it once.)
+2. **Wire the server** into your Claude Code MCP config, pointing it at that credentials file — see the
+   project's README for the exact `npx @cocal/google-calendar-mcp` command and config block.
+3. **First run** opens a browser to approve scopes; grant read-only if you only want the OS to *read*.
 
-> Scopes are yours to choose. Grant read-only where you only need reads. The OS never sends email or
-> mutates your calendar without explicit per-action approval.
+**Smoke test:** ask Claude Code "what's on my calendar today?" — if it answers from your real calendar,
+`/start-day`, `/brain`, and `/content-plan`'s calendar push are live.
+
+> The OS never mutates your calendar without explicit per-action approval — a calendar write always
+> stops for your "confirm" first (`framework/operating-principles.md`).
+
+**Advanced — your own CLI (optional).** If you'd rather drive Google from a command line, the author uses
+a private `gws` CLI (Client ID / Secret / refresh token in `.env`, the three `GOOGLE_*` keys in
+`.env.example`). That CLI isn't shipped here; the skills only assume *some* calendar connector is wired,
+so a public MCP is the recommended route. Bring your own if you have one.
 
 ---
 

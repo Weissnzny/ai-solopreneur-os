@@ -18,6 +18,21 @@ commands, and the 库 Arsenal wiki — all runnable on a Claude Pro login with n
   artifact (`.playwright-mcp/`, console logs) or stray root image is ever committed.
 - **Ignored** browser-debug artifacts so QA runs never dirty the publish surface.
 
+## 0.5.2 — 2026-07-03 — calendar is connector-agnostic + installable by anyone
+
+The calendar integration no longer depends on the author's private CLI, so a fresh clone can actually
+wire it.
+
+- **`connectors/README.md`** now recommends a **public Google Calendar MCP server**
+  ([nspady/google-calendar-mcp](https://github.com/nspady/google-calendar-mcp), `npx`-runnable) as the
+  easy path — no author-only build. The private `gws` CLI is kept only as a documented advanced option.
+- **Calendar skills are connector-agnostic.** `/content-plan`, `/brain`, and `/start-day` ask for *any*
+  wired calendar connector rather than hardcoding `gws`; the `gws` commands remain as labelled examples.
+- **Honest README.** The "calendar becomes the command center" callout now says integration is optional —
+  `/content-plan` ships the week's plan + per-day docs with nothing wired; a connector just adds the push.
+- **`.env.example`** clarifies the `GOOGLE_*` keys are for the advanced CLI path only — the MCP manages
+  its own OAuth.
+
 ## 0.5.0 — 2026-06-10 — W_Counsel v0.44.0 app now vendored + doctrine flowchart
 
 First release where the **full W_Counsel shell ships in the repo** (previous releases only documented
