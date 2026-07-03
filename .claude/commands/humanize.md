@@ -1,0 +1,1 @@
+﻿Strip the AI tells and add real voice. Read and execute .claude/skills/humanize/SKILL.md.

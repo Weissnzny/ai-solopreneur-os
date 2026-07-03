@@ -1,0 +1,1 @@
+﻿Operate your Second Brain board (阵 Formation). Read and execute .claude/skills/brain/SKILL.md.

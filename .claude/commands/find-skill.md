@@ -1,0 +1,1 @@
+﻿Find a Claude Code skill from trusted marketplaces (阵 Formation). Read and execute .claude/skills/find-skill/SKILL.md.

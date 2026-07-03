@@ -1,0 +1,1 @@
+﻿Evening shutdown. Read and execute .claude/skills/daily-routine/SKILL.md in shutdown mode.

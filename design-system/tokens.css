@@ -1,0 +1,38 @@
+/* ============================================================
+   AI Solopreneur OS — design tokens
+   Brand-agnostic by design. Change the values here and every
+   skill that renders a visual (system-map, carousel, …) follows.
+   The defaults are a calm "Quiet Horizon" green; swap freely.
+   ============================================================ */
+
+:root {
+  /* --- brand color (change these three to rebrand the whole OS) --- */
+  --brand:            #236345;   /* primary */
+  --brand-deep:       #143a29;   /* darker ground */
+  --brand-accent:     #6ee09a;   /* emphasis / glow */
+
+  /* --- neutrals --- */
+  --ink:              #14241c;   /* near-black text on light */
+  --paper:            #ffffff;   /* light ground */
+  --muted:            #5b6b62;   /* secondary text */
+  --line:             #e3eae6;   /* hairlines / borders */
+
+  /* --- dark surface (for dark-ground renders) --- */
+  --dark-ground:      #0f1f17;
+  --on-dark:          #eaf3ee;
+
+  /* --- type --- */
+  --font-sans:        "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-cjk:         "Noto Sans SC", "Noto Sans CJK SC", var(--font-sans);  /* bilingual stack */
+  --font-mono:        "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* --- scale --- */
+  --radius:           14px;
+  --radius-sm:        8px;
+  --shadow:           0 8px 30px rgba(20, 58, 41, 0.12);
+  --gap:              clamp(12px, 2vw, 24px);
+  --maxw:             1080px;
+}
+
+/* Bilingual rule: stack languages vertically (primary on top, the other below),
+   never side by side. Use --font-sans for Latin, --font-cjk for Chinese. */

@@ -1,0 +1,1 @@
+﻿First-run onboarding for a new user (令, day one). Read and execute .claude/skills/kick-off/SKILL.md.

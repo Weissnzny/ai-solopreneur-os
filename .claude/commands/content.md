@@ -1,0 +1,1 @@
+﻿Route a topic through the 8-department content system (战 The Campaign). Read and execute .claude/skills/content/SKILL.md.

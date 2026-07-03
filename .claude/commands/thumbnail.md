@@ -1,0 +1,1 @@
+﻿Engineer a golden-rule thumbnail brief + prompts (战 The Campaign). Read and execute .claude/skills/thumbnail/SKILL.md.

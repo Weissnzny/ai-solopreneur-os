@@ -1,0 +1,1 @@
+﻿Assemble a long-form article beat by beat (道 The Way). Read and execute .claude/skills/writing-beats/SKILL.md.

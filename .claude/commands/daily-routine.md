@@ -1,0 +1,1 @@
+﻿Run your daily operating routine (律 The Rhythm / 令 The Morning Command). Read and execute .claude/skills/daily-routine/SKILL.md.
