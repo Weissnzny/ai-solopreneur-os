@@ -1,157 +1,182 @@
 # Learn the OS — the path from installed to shipping
 
-**In plain English:** the OS is installed. Now what? This is the order to learn it in. Seven steps,
-about a week if you do one a day. Each step ends with something real you made, not a lesson you
-watched.
+**In plain English:** the OS is on your machine. Now what? This is the order to learn it in, and it is
+the same order as the classroom, so the two never contradict each other. About a week if you do one
+step a day. Every step ends with something real you made, not a lesson you watched.
 
-Recorded walkthroughs for every step live in the classroom at
-[skool.com/ai-solopreneur-os](https://www.skool.com/ai-solopreneur-os). This file is the map. The
-classroom is the guide walking it with you.
+Recorded walkthroughs live in the free classroom at
+[skool.com/ai-solopreneur-os](https://www.skool.com/ai-solopreneur-os). **This file is the map. The
+classroom is someone walking it with you.** You can do the whole thing from this file alone.
 
 ---
 
-## The shape of the week
+## The shape of it
 
-| Step | You learn | You walk out with |
+| | Step | You walk out with |
 |---|---|---|
-| 1 | Install it | `/system-map` running on your machine |
-| 2 | Make it yours | an `intake.md` in your voice |
-| 3 | The doctrine (五柱 · 四谋) | the loop you are weakest in, named |
-| 4 | Run your first week | one real thing shipped |
-| 5 | 阵 Formation | a board you talk to instead of carrying it in your head |
-| 6 | 库 Arsenal | knowledge that compounds |
-| 7 | 道 The Way, then score it | a `/system-check` number and your next fix |
+| **M0** | Start here | a decision that this is worth your hour a day |
+| **P** | Prerequisites | Claude Pro + VS Code + Claude Code, signed in |
+| **S1** | Download and open the OS | `/system-map` printing on your screen |
+| **S2** | Onboard it | an `intake.md` in your voice |
+| **S3** | Get your day's plan | one small thing shipped on day one |
+| **S4** | How the system maps | you can name the 5 pillars and 4 loops |
+| **S5** | The commands | you know what to reach for, without memorising |
+| **A1-A3** | Track A: content | one idea turned into a week of posts, in your voice |
 
 ---
 
-## Step 1 — Install it
+## M0 — Start here
 
-Follow [`INSTALL.md`](./INSTALL.md) end to end. Do not skip the proof step.
+Before you install anything, know what you are agreeing to.
 
-**Done when:** `/system-map` prints a map of your OS.
+Read [`README.md`](./README.md) for what this is, then
+[`framework/operating-principles.md`](./framework/operating-principles.md) for what it will never do
+to you. No fabrication. No anxiety, no hype. Family first. Plain language. It asks before it spends,
+sends, publishes, or deletes. It edits its own folder and treats the rest of your machine as read-only.
+
+**The honest cost:** about an hour a day, and about US$20 a month for Claude Pro. That is the whole
+bill. There is no upsell hiding in step nine.
+
+**Done when:** you have written down, privately, the one reason you are doing this. You will need it
+again in S2, and the OS will hold it as your 道.
 
 ---
 
-## Step 2 — Make it yours
+## Prerequisites — what to install first
+
+Two things, both about 30 minutes total, no coding:
+
+1. **A Claude Pro account** (about US$20/month) at [claude.ai](https://claude.ai). This is the engine.
+2. **VS Code** (free) at [code.visualstudio.com](https://code.visualstudio.com), plus the **Claude Code**
+   extension inside it, signed in with that Pro account.
+
+You do not need an API key for normal use.
+
+**Done when:** you can open VS Code and see Claude Code signed in.
+
+---
+
+## S1 — Download the OS and open it
+
+Follow [`INSTALL.md`](./INSTALL.md) end to end. It has a screenshot per step.
+
+The one step people get wrong: **open the folder level that directly contains `README.md` and the
+hidden `.claude` folder.** One level too high and no `/` commands appear, and it looks like the OS is
+broken when you have simply opened the wrong door.
+
+**Done when:** `/system-map` prints a map of your OS. Post that screenshot in the community. It is how
+anyone quietly stuck gets caught early.
+
+---
+
+## S2 — Onboard it
 
 Say **"onboard me"** in Claude Code, or fill [`onboarding/intake.md`](./onboarding/intake.md) by hand.
 
-Skip this and every piece the OS writes belongs to somebody else. It is the difference between a tool
-and *your* tool.
+It asks who you are, who you serve, how you sound, your rhythm, and the one line you will not cross.
+The reason you wrote down in M0 goes in here. That is the moment it stops being a tool and starts
+being *your* tool.
 
 **Done when:** no `{{ONBOARD}}` placeholders are left in `intake.md`.
 
 ---
 
-## Step 3 — The doctrine
+## S3 — Get your day's plan
 
-Read [`framework/ai-solopreneur-os.md`](./framework/ai-solopreneur-os.md) once, properly. Then
+```
+/start-day        issue the day's orders
+/shutdown         close the day honestly
+```
+
+Run `/start-day` and actually ship whatever small thing it points you at. Day one, something real
+exists.
+
+**Done when:** you have posted or sent one thing. Ugly and real beats polished and unposted.
+
+---
+
+## S4 — How the system maps
+
+Read [`framework/ai-solopreneur-os.md`](./framework/ai-solopreneur-os.md) once, properly, and
 [`framework/glossary.md`](./framework/glossary.md) when a term stops you.
 
 **五柱 (five pillars)** are the surfaces you operate from: 势 Terrain · 律 Rhythm · 令 Morning Command ·
 谋 Grand Strategy · 库 Arsenal.
 
-**四谋 (four loops)** live inside 谋 and you run all four every week. It is a cycle, not a ladder:
+**四谋 (four loops)** live inside 谋, and you run all four every week. A cycle, not a ladder:
 
 - **知 Knowing** — what is actually worth my effort this week?
 - **阵 Formation** — what did I redo this week that a system should have held?
 - **战 Campaign** — what did I put into the world that someone could react to?
 - **道 The Way** — will this business still feel like mine in five years?
 
-**Done when:** you can answer all four out loud, about your own week, and you know which one is your
+Four agents mirror the loops and route your plain-language request to the right skill, so you are never
+picking commands off a list.
+
+**Done when:** you can answer all four questions about your own week, and you know which loop is your
 weakest.
 
 ---
 
-## Step 4 — Run your first week
+## S5 — The commands
 
-The rhythm first, then the output.
+The full list is in [`README.md`](./README.md) under *What you can run*. Do not memorise it. Ask in
+plain language and the agents route it.
+
+The ones you will actually live in:
 
 ```
-/start-day        issue the day's orders
-/shutdown         close the day honestly
-/content-plan     plan a week of topics in one sitting
-/content          route one topic through the content departments
-/caption          turn it into post copy
-/humanize         strip the AI tells before it goes out
+/start-day  /shutdown         your daily cadence
+/content-plan  /content       plan a week · route one topic
+/caption  /carousel  /video-script   the assets
+/humanize                     the quality gate, every time
+/brain                        a board you talk to
+/find-skill                   borrow before you build
+/system-check                 score your OS, get the top 3 fixes
 ```
 
-`/content-plan` works with nothing connected. It writes the week's plan and a doc per day under
-`output/`. A calendar connector is optional and comes later, if ever.
-
-**Done when:** you have posted one real thing. Ugly and real beats polished and unposted.
+**Done when:** you have run `/system-check` once and know your weakest loop by number, not by feeling.
 
 ---
 
-## Step 5 — 阵 Formation
+## Track A — turn one idea into a week of content
 
-```
-/brain            a local board you talk to
-/find-skill       find a trusted skill before you build one
-```
+This is where the OS pays for itself.
 
-The point of Formation is that work still happens when you are not holding it. Start with the board.
-Put three real things on it today, then talk to it tomorrow instead of remembering them.
+**A1 — one idea, a week of posts.** `/content-plan` plans the week and writes a doc per day under
+`output/`. It works with nothing connected. A calendar connector is optional and comes much later.
 
-**Done when:** your board has three real items and you added one without opening a file yourself.
+**A2 — teach it your voice.** Create a `voice.md` and paste two or three things you have actually
+written. Then run `/humanize` on a caption and compare before and after. That gap is the whole point.
 
----
+**A3 — the weekly rhythm.** Plan once a week, ship daily. Keep it boring and repeatable. The
+**Saturday flagship** is the one piece a week that compounds; a year of them is an archive nobody can
+speed-run.
 
-## Step 6 — 库 Arsenal
-
-Your Arsenal is [`wiki/`](./wiki/). It is a personal knowledge base your OS can read, built on the
-pattern Andrej Karpathy described: raw sources compiled by an LLM into a linked set of pages, with an
-index that keeps itself current.
-
-Say **ingest** and feed it something real: a call transcript, an article that changed your mind, your
-own notes. Say **ask** to query it. Say **lint** to check its health.
-
-Read [`wiki/CLAUDE.md`](./wiki/CLAUDE.md) for how the Arsenal governs itself, and
-[`wiki/overview.md`](./wiki/overview.md) for the shape.
-
-The 库 pillar routes what you feed it three ways: **build** something, tell a **story**, make
-**content**. That is why ingesting is not filing. It is loading the weapon.
-
-**Done when:** three sources are in, and you have asked your own Arsenal one question it answered
-better than a search engine could.
+**Done when:** a week of content exists, in your voice, and you did it in one sitting.
 
 ---
 
-## Step 7 — 道 The Way, then score it
+## Keep going
 
-```
-/writing-beats    assemble a long piece beat by beat
-/system-check     score your OS against the four loops, get the top 3 fixes
-```
+**库 The Arsenal** ([`wiki/`](./wiki/)) is your personal knowledge base, built on the pattern Andrej
+Karpathy described: raw sources compiled into a linked set of pages with an index that maintains
+itself. Say **ingest** to feed it, **ask** to query it, **lint** to check its health. The 库 pillar
+routes what you feed it three ways: **build** something, tell a **story**, make **content**.
 
-The **Saturday flagship** is the one piece a week that compounds. Everything else is daily campaign.
-A year of flagships is an archive nobody can speed-run.
-
-Then score honestly. `/system-check` tells you which loop is starving.
-
-**Done when:** you have a score and you know the one fix you are doing next.
-
----
-
-## The rules it keeps
-
-Worth reading once so you know what this thing will never do to you:
-[`framework/operating-principles.md`](./framework/operating-principles.md).
-
-No fabrication. No anxiety, no hype. Family first. Plain language. It asks before it spends, sends,
-publishes, or deletes. It edits its own folder and treats the rest of your machine as read-only.
+See [`wiki/CLAUDE.md`](./wiki/CLAUDE.md) for how it governs itself.
 
 ---
 
 ## When you want to go faster
 
 The path above is the whole free system, and it genuinely finishes. Nothing is held back to sell you
-something.
+something later.
 
 What is on the other side is **speed and company**: someone watching your first week instead of you
 guessing, and **W_Counsel (军师)**, the version of this OS with a face and a voice that you talk to
-instead of type at. See [`w-counsel/`](./w-counsel/) and the community.
+instead of type at. See [`w-counsel/`](./w-counsel/).
 
-<!-- WEISS: paid exit not yet decided. Options on the table: the Sprint (live), the W_Counsel
-     waitlist, or both. Replace this block with the real offer + link before launch. Do not
-     publish an invented price or URL. -->
+<!-- WEISS: paid exit not yet decided (2026-07-21). Options on the table: the Sprint (live), the
+     W_Counsel waitlist, or both. This block deliberately carries no price and no purchase link.
+     Same placeholder sits at the bottom of README.md. -->
