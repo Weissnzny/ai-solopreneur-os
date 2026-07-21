@@ -5,6 +5,28 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.6.0 — 2026-07-21 — installable by a human, learnable in a week
+
+The repo stopped assuming the reader is a developer. Setup is now a **documented, screenshot-driven
+manual walkthrough** instead of a script you double-click, and there is a real learning path from
+"installed" to "shipped."
+
+- **Removed the one-click installer.** `setup.cmd` and `scripts/Install-Shortcut.ps1` are gone. They
+  hid the two steps that actually matter (which folder level to open, and signing in), and only ever
+  worked on Windows. Setup is now the same five steps on every platform, shown rather than automated.
+- **New [`INSTALL.md`](INSTALL.md)** — the full manual install, Windows and Mac, with a numbered
+  screenshot slot per step under `docs/images/` and the folder-level trap called out explicitly.
+- **New [`LEARN.md`](LEARN.md)** — a seven-step path from installed to first shipped piece, mapped to
+  the 五柱 · 四谋, each step ending in something real rather than a lesson watched.
+- **New [`TROUBLESHOOTING.md`](TROUBLESHOOTING.md)** — the failures that actually happen, led by the
+  big one: opening the wrong folder level so no `/` commands appear.
+- **New `docs/images/`** — the shot list for the six install screenshots, with exact filenames already
+  wired into `INSTALL.md`.
+- **README quickstart rewritten** honestly: about 20 minutes, mostly downloads, no installer.
+- **Dead-end CTA fixed.** The old ending ("Get W_Counsel — launching soon") pointed nowhere. It now
+  states plainly that the free OS finishes, and points to the community classroom for the recorded
+  walkthroughs. No price or purchase link is published until the paid exit is decided.
+
 ## 0.5.1 — 2026-07-03 — W_Counsel is the paid app; free OS = framework + commands
 
 The optional **W_Counsel (军师) app is the paid, packaged product** and no longer ships inside the public

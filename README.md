@@ -31,18 +31,24 @@ Read the full doctrine: [`framework/ai-solopreneur-os.md`](./framework/ai-solopr
 
 ---
 
-## Quickstart (about 60 seconds + sign-in)
+## Quickstart (about 20 minutes, mostly downloads)
 
 **You need:** a **Claude Pro account (minimum)** and [VS Code](https://code.visualstudio.com/) with the
 **Claude Code** extension. The OS runs on your Claude Code login — **no API key needed** for normal use.
+No installer to run, nothing to configure.
 
-1. **Get the OS** — download this repo as a ZIP (or `git clone` it) into a folder you own.
-2. **Run setup** — double-click **`setup.cmd`** (Windows). It creates your `.env` and opens the folder
-   in VS Code. *(Mac/Linux: just open the folder in VS Code.)*
-3. **Sign in** — install the Claude Code extension, sign in with Claude Pro.
-4. **Onboard** — open the folder in Claude Code and say **"onboard me"**, or fill
+1. **Install VS Code**, then the **Claude Code** extension, and sign in with Claude Pro.
+2. **Get the OS** — download this repo as a ZIP (or `git clone` it) into a folder you own.
+3. **Open that folder in VS Code.** Open the level that directly contains `README.md` and `.claude`.
+4. **Onboard** — say **"onboard me"** in Claude Code, or fill
    [`onboarding/intake.md`](./onboarding/intake.md) so the OS speaks in your voice.
-5. **Start** — run **`/start-day`** and ship your first piece.
+5. **Prove it** — run **`/system-map`**, then **`/start-day`** and ship your first piece.
+
+📸 **[`INSTALL.md`](./INSTALL.md) walks every step with screenshots.** Full recorded walkthroughs
+(Windows + Mac) are in the community classroom at
+[skool.com/ai-solopreneur-os](https://www.skool.com/ai-solopreneur-os).
+Stuck? [`TROUBLESHOOTING.md`](./TROUBLESHOOTING.md). Installed already?
+[`LEARN.md`](./LEARN.md) is the path from here to your first shipped piece.
 
 > Prefer the terminal? Install Claude Code, `cd` into the folder, run `claude`, then `/start-day`.
 
@@ -109,9 +115,18 @@ you speak, it reasons against your own data folder, and a 3D strategist answers 
 - **It stays in its lane.** It may edit *only* its own data folder; everything else on your disk is read-only.
 - **It onboards you.** A 15-minute pixel-kingdom walks you through setup — answer the six halls and your war-counsel is tuned to *you*.
 
-**The OS above is free — run it in Claude Code today.** W_Counsel is the **paid, packaged version**: the same OS
-with a face, for people who'd rather *talk* to their system than type commands. See [`w-counsel/`](./w-counsel/).
-**Get W_Counsel — launching soon.**
+**The OS above is free, and it genuinely finishes.** Nothing is held back to sell you something: install
+it, onboard it, ship with it, keep it. W_Counsel is the **paid, packaged version** of the same OS, for
+people who'd rather *talk* to their system than type commands. See [`w-counsel/`](./w-counsel/).
+
+**Want company while you set it up?** The free community classroom carries the recorded walkthroughs,
+Windows and Mac, plus the people going through it with you:
+**[skool.com/ai-solopreneur-os](https://www.skool.com/ai-solopreneur-os)**.
+
+<!-- WEISS: paid exit still undecided (2026-07-21). Options: the Sprint (live), the W_Counsel waitlist,
+     or both. This block deliberately carries no price and no purchase link until you decide. Replace
+     it before launch. Same placeholder sits at the bottom of LEARN.md. -->
+
 
 ---
 
