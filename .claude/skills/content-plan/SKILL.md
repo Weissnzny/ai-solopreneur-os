@@ -12,7 +12,8 @@ optionally pushes events to your Google Calendar and writes a per-day script doc
 one topic. No platform gets a different topic on the same date.
 
 ## Read first
-- `onboarding/intake.md` — your posting days, platforms, languages, and audience.
+- `onboarding/intake.md` — your working days, platforms, languages, and audience. If **Where you post**
+  reads `none`, say so plainly and ask whether they want to start publishing before planning a week of it.
 - Your `voice.md` — tone for the script bodies.
 
 ## Pillar rhythm (default — adjust to your intake)

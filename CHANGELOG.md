@@ -5,6 +5,30 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.6.1 — 2026-07-21 — `/start-day` stops assuming you sell content
+
+The OS asked you how you *sound* before it asked what your work *is*, and then guarded content every
+morning regardless of the answer. That was one business model — the author's — shipped as if it were
+universal. Fixed.
+
+- **The interview now opens with the work.** `/kick-off` gained four grounding questions ahead of the
+  voice section: what your day actually looks like · what would make the next 90 days a win · **the
+  thing you keep redoing that a system should have held** (阵 Formation's own question, finally asked
+  on day one) · and **the one thing you push forward daily**.
+- **`/start-day` Step 3 branches on that answer.** It was hardcoded to "produce one postable asset."
+  It now guards **content · clients · product · delivery** — whichever you chose. The doctrine always
+  said 战 Campaign ships *"content, a product, a post, a small win"*; the skill only ever implemented
+  the first. This makes the skill match the doctrine it claims to run.
+- **The guarantee survives the change.** The morning still doesn't close until your one thing has
+  moved, a missed slot is still logged honestly rather than papered over, and everything still stops
+  at *prepared* — post, email, client update or deploy, you release it.
+- **Never defaults to content.** The daily push has to be chosen out loud; the intake offers a real
+  exit (`Where you post: none`) and `/content-plan` now checks it instead of assuming a posting habit.
+- **`onboarding/intake.md` restructured** around Your work → Where you're heading → What's grinding you
+  down → What you need it to carry, with a table showing what each daily push makes `/start-day` guard.
+- **The voice paste is now framed for everyone**, not just publishers — it is what stops your emails
+  and proposals reading like a robot.
+
 ## 0.6.0 — 2026-07-21 — installable by a human, learnable in a week
 
 The repo stopped assuming the reader is a developer. Setup is now a **documented, screenshot-driven

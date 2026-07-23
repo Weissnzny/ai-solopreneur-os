@@ -73,11 +73,18 @@ anyone quietly stuck gets caught early.
 
 Say **"onboard me"** in Claude Code, or fill [`onboarding/intake.md`](./onboarding/intake.md) by hand.
 
-It asks who you are, who you serve, how you sound, your rhythm, and the one line you will not cross.
-The reason you wrote down in M0 goes in here. That is the moment it stops being a tool and starts
-being *your* tool.
+It asks what your work actually is, where you are heading, what keeps grinding you down, how you
+sound, your rhythm, and the one line you will not cross. The reason you wrote down in M0 goes in here.
+That is the moment it stops being a tool and starts being *your* tool.
 
-**Done when:** no `{{ONBOARD}}` placeholders are left in `intake.md`.
+**The question that changes everything:** *what is the one thing you push forward every day?*
+**Content · clients · product · delivery** — pick one. It is what `/start-day` will refuse to let you
+close the morning without. Pick the one that, if it moved every single day, would change your year.
+
+Do not pick content because this OS was built by someone who sells content. If your business moves on
+client conversations, pick clients. You can change it any time by editing the intake.
+
+**Done when:** no `{{ONBOARD}}` placeholders are left in `intake.md`, and you have chosen your one thing.
 
 ---
 
@@ -88,10 +95,13 @@ being *your* tool.
 /shutdown         close the day honestly
 ```
 
-Run `/start-day` and actually ship whatever small thing it points you at. Day one, something real
-exists.
+Run `/start-day`. It reads the one thing you chose in S2 and will not let you close the morning until
+that thing has moved — a post if you chose content, a real conversation if you chose clients, a visible
+increment if you chose product, something in a client's hands if you chose delivery.
 
-**Done when:** you have posted or sent one thing. Ugly and real beats polished and unposted.
+It prepares; you send. Same rule in all four lanes.
+
+**Done when:** one real thing moved today. Ugly and real beats polished and unshipped.
 
 ---
 
