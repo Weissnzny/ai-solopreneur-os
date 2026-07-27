@@ -5,6 +5,18 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.6.2 — 2026-07-26 — `/kick-off` asks every question with an example
+
+A non-technical owner freezes at a blank question. Now `/kick-off` never fires a bare one.
+
+- **Every interview question ships with an example.** Ask it plainly, show a short sample answer so
+  they see the shape, then say "answer in your own words, like this." The samples come from the
+  `{{ONBOARD: …}}` examples already in `onboarding/intake.md`; if they still freeze, offer 2-3 options
+  to pick from. No one should ever stare at a blank prompt — this is what makes the OS fillable by
+  someone who has never used AI seriously before.
+
+---
+
 ## 0.6.1 — 2026-07-21 — `/start-day` stops assuming you sell content
 
 The OS asked you how you *sound* before it asked what your work *is*, and then guarded content every

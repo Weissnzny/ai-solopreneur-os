@@ -27,6 +27,14 @@ Read `onboarding/intake.md`. Check which fields still hold unfilled `ONBOARD` pl
 
 ### Step 2 — The interview (ask one at a time; write each answer into the intake as you go)
 
+**Ask with an example, EVERY time (hard rule — for non-technical members).** A first-time owner
+freezes at a blank question. So never fire a bare question. With each one: (a) ask it plainly, (b) show
+**one short sample answer** so they see the shape, (c) tell them how to fill it in — *"just answer in
+your own words, something like this."* Pull the sample from the matching `{{ONBOARD: …}}` field in
+`onboarding/intake.md` (every field already carries an example). If they still freeze, offer 2-3 options
+to pick from. The goal is that they never stare at a blank — they always have an example to copy the
+shape of. This is what makes the OS fillable by someone who has never used AI seriously before.
+
 **Part A — the work (ask these first; they decide what the OS guards every morning).**
 Press for a concrete answer here. "Marketing" is not an answer; "I rebuild every quote from scratch"
 is. If they give you an abstraction, ask "what did that look like last Tuesday?"
@@ -88,6 +96,9 @@ Then name the one thing they said grinds them down, and say it out loud:
 > "You said <the grind>. That's a 阵 Formation problem, and it's what we wire next — not more content."
 
 ## Critical rules
+0. **Every question ships with an example.** Never ask a bare question — show a short sample answer
+   (from the intake's `{{ONBOARD: …}}` examples) and say "answer in your own words, like this." A blank
+   prompt loses a non-technical member; an example keeps them moving.
 1. The interview is capped — don't add questions in conversation.
 2. **Never default the daily push to `content`.** It must be chosen out loud. Content is the author's
    business model, not a universal one; assuming it is the fastest way to lose a member in week two.
