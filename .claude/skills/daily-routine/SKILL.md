@@ -2,7 +2,10 @@
 name: daily-routine
 description: >
   Your daily operating routine — the morning kickoff and evening shutdown that
-  sequence the whole day. Two modes. `start` (via /start-day, "good morning",
+  sequence the whole day around YOUR own daily tasks (a news scan on your field,
+  content planning, client follow-ups — whatever you want your morning to start
+  with; you decide, it is not a fixed script copied from anyone). Two modes.
+  `start` (via /start-day, "good morning",
   "start my day", "kick off my day"): orient → scan today → push your one thing
   forward (content, clients, product, or delivery — whichever you chose at
   kick-off) → check the community → client/sales follow-ups. `shutdown` (via
@@ -14,8 +17,10 @@ description: >
 # /daily-routine — 律 The Rhythm · 令 The Morning Command
 
 Two pillars in one routine. **令 (Morning Command)** issues the day's orders; **律 (Rhythm)** is the
-cadence you keep. Run `/start-day` when you sit down and `/shutdown` at the end. The skill walks a
-fixed sequence, doing the work at each step and pausing only where your decision is required.
+cadence you keep. Run `/start-day` when you sit down and `/shutdown` at the end. The steps below are a
+default backbone — shape the routine around **your own daily tasks** (a news scan on your field,
+content planning, client follow-ups, whatever you want the morning to open with). It does the work at
+each step and pauses only where your decision is required.
 
 It is an **orchestrator** — it owns the sequence and hands the real work to the skill that owns it:
 content production → the content skills (`content`, `video-script`, `carousel`, `caption`); board
@@ -42,7 +47,9 @@ recorded there, and the user can change it any time by editing the file.
 ### Step 1 — Orient
 Pull whatever daily inputs you keep: a morning briefing file if you generate one, and your calendar
 (read it via a calendar connector if one is wired — a Google Calendar MCP, or the author's `gws` CLI
-with `gws calendar +agenda --today`; see `connectors/`).
+with `gws calendar +agenda --today`; see `connectors/`). Run any recurring morning tasks the user has
+set for themselves too — a news scan on their field, a content-planning pass — invoking the skill that
+owns each; these are theirs to define, not a fixed list.
 Hand over **the 3 things that actually matter today**, not a full recap.
 
 ### Step 2 — Scan today

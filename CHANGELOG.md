@@ -5,6 +5,19 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.6.3 — 2026-07-27 — `/start-day` is your routine, not a fixed script
+
+The morning routine read as one rigid sequence — a pre-flight checklist you copy. It is meant to be
+shaped around whatever each person needs to open their day: a news scan on their field, content
+planning, client follow-ups. Made that explicit so nobody thinks they have to run the author's exact
+morning.
+
+- **`/start-day` now leads with your own daily tasks.** The five steps stay as a default backbone, but
+  the routine pulls whatever recurring morning tasks you have set for yourself and runs each via the
+  skill that owns it. You decide what your day opens with — it is not a fixed list.
+
+---
+
 ## 0.6.2 — 2026-07-26 — `/kick-off` asks every question with an example
 
 A non-technical owner freezes at a blank question. Now `/kick-off` never fires a bare one.
