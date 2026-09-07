@@ -186,7 +186,3 @@ something later.
 What is on the other side is **speed and company**: someone watching your first week instead of you
 guessing, and **W_Counsel (军师)**, the version of this OS with a face and a voice that you talk to
 instead of type at. See [`w-counsel/`](./w-counsel/).
-
-<!-- WEISS: paid exit not yet decided (2026-07-21). Options on the table: the Sprint (live), the
-     W_Counsel waitlist, or both. This block deliberately carries no price and no purchase link.
-     Same placeholder sits at the bottom of README.md. -->

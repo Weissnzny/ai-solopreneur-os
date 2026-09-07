@@ -110,6 +110,9 @@ A short end-of-day wrap. Do not re-run the morning scan.
 2. **Set tomorrow's top 3** — three priorities for tomorrow.
 3. **Hand off the board** — the actual board update is owned by `brain`. Offer to invoke `brain` in
    evening-shutdown mode to write tomorrow's priorities and close today. Don't write the board here.
+4. **Write the session note** — `journal/YYYY-MM-DD-<topic>.md` per `journal/CLAUDE.md`: under
+   300 words, what was decided, what changed, which files were touched. This is the one file this
+   skill writes. If earlier sessions left no note, write theirs first.
 
 ## Approval gates (local echo of `framework/operating-principles.md`)
 This skill only reads and opens files. But the skills it invokes can touch gated actions — never let
@@ -124,4 +127,4 @@ first; any publish/send → explicit per-action approval.
 
 ## Output Standard
 Format: text walkthrough in chat — this is an operating routine, not a deliverable. Downstream skills
-save to their own paths. No files written here.
+save to their own paths. The only file this skill writes is the session note in `journal/` (shutdown mode).

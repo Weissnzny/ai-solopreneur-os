@@ -50,6 +50,25 @@ These bind everything you produce:
 5. **Ask before you spend / send / publish / delete** — paid API calls, calendar changes, any publish or outbound send, and deleting files you didn't create all pause for explicit approval. Approval in one place doesn't carry to the next.
 6. **Read-only beyond your own ground** — edit this OS folder freely; treat everything else as read-only unless pointed there.
 
+## Keep it small, keep it remembered
+Every file this OS reads costs tokens, and a long conversation costs more with every message.
+Four rules keep that in check. They are rules, not tips: follow them without being asked.
+1. **Size caps.** This file stays under 200 lines (Anthropic's own guidance). Any other `.md` the OS
+   reads at session start stays under 1,000 words. When a file outgrows its cap, split it and leave a
+   one-line pointer in its place. Detail lives in the file that owns it, never here.
+2. **One note per session.** `/shutdown` writes `journal/YYYY-MM-DD-<topic>.md`: under 300 words,
+   what was decided, what changed, which files were touched. Takeaways and pointers, never a
+   transcript. Schema: `journal/CLAUDE.md`. A session that ended without `/shutdown` gets its note at
+   the start of the next one.
+3. **Memory, saved as it happens.** When the user states a fact about themselves, their business, or
+   a decision that should still hold next time, save it right then: one fact per file in `memory/`,
+   plus one line in `memory/MEMORY.md`. Read `memory/MEMORY.md` at session start. Never save what the
+   repo already records. Fix a wrong memory; delete a dead one.
+4. **Spend tokens on purpose.** `/clear` when switching to unrelated work (it costs nothing). Point
+   the OS at one file, not a folder. Ask for one specific thing, not "improve everything". Check
+   `/usage` before a long job: the session limit resets every five hours, and the weekly bar shows
+   its own reset time there.
+
 ## Output
 Every skill produces a real artifact under `output/`, never the repo root, branded from
 `design-system/tokens.css`. Full rule: `design-system/output-standard.md`.

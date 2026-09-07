@@ -5,6 +5,23 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.7.0 — 2026-09-07 — Tokens: size caps, a session journal, memory that saves as it happens
+
+Every file the OS reads costs tokens, and a long session costs more per message. The OS now carries
+the rules that keep that in check, so you do not have to remember them.
+
+- **`CLAUDE.md` gained "Keep it small, keep it remembered":** this file stays under 200 lines, other
+  start-up `.md` files under 1,000 words, split-and-point when one outgrows its cap; four token habits
+  (`/clear` between unrelated jobs, one file not a folder, one specific ask, check `/usage`).
+- **`journal/`:** `/shutdown` now writes one note per session (under 300 words, decisions + what
+  changed + files touched). Schema in `journal/CLAUDE.md`, template in `journal/_template.md`.
+- **`memory/`:** facts about you and decisions that should hold next time are saved the moment they
+  appear, one per file, indexed in `memory/MEMORY.md`, which the OS reads at start.
+- `.gitignore` keeps your notes and memories out of any repo you push; only the schema ships.
+- `TROUBLESHOOTING.md` points the usage-limit answer at `/usage` and the new rules.
+
+---
+
 ## 0.6.3 — 2026-07-27 — `/start-day` is your routine, not a fixed script
 
 The morning routine read as one rigid sequence — a pre-flight checklist you copy. It is meant to be

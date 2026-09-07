@@ -123,11 +123,6 @@ people who'd rather *talk* to their system than type commands. See [`w-counsel/`
 Windows and Mac, plus the people going through it with you:
 **[skool.com/ai-solopreneur-os](https://www.skool.com/ai-solopreneur-os)**.
 
-<!-- WEISS: paid exit still undecided (2026-07-21). Options: the Sprint (live), the W_Counsel waitlist,
-     or both. This block deliberately carries no price and no purchase link until you decide. Replace
-     it before launch. Same placeholder sits at the bottom of LEARN.md. -->
-
-
 ---
 
 ## Acknowledgements

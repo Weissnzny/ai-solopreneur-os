@@ -89,6 +89,9 @@ platform, so an English LinkedIn post and a 中文 Xiaohongshu post can come out
 That is a Claude plan limit, not the OS. Wait for the reset and pick up where you stopped. Nothing is
 lost. The OS keeps its state in files on your disk, not in the conversation.
 
+Type `/usage` to see the bars: the session one resets every five hours, the weekly one shows its own
+reset time. The token rules the OS follows are in `CLAUDE.md` under "Keep it small, keep it remembered".
+
 ### It changed a file I did not want changed
 
 The OS is bound to edit only its own folder and to treat the rest of your machine as read-only, and it

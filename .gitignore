@@ -36,6 +36,13 @@ wiki/raw/*
 !wiki/log.md
 !wiki/overview.md
 
+# --- your session notes + memory (schema ships, your notes never do) ---
+journal/*
+!journal/CLAUDE.md
+!journal/_template.md
+memory/*
+!memory/MEMORY.md
+
 # --- W_Counsel mascot heavy assets (bring-your-own) ---
 w-counsel/models/*.glb
 w-counsel/models/*.glb.bak
