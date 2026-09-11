@@ -17,7 +17,7 @@ classroom is someone walking it with you.** You can do the whole thing from this
 | **M0** | Start here | a decision that this is worth your hour a day |
 | **P** | Prerequisites | Claude Pro + VS Code + Claude Code, signed in |
 | **S1** | Download and open the OS | `/system-map` printing on your screen |
-| **S2** | Onboard it | an `intake.md` in your voice |
+| **S2** | Onboard it | a `context/who-i-am.md` in your voice |
 | **S3** | Get your day's plan | one small thing shipped on day one |
 | **S4** | How the system maps | you can name the 5 pillars and 4 loops |
 | **S5** | The commands | you know what to reach for, without memorising |
@@ -71,7 +71,7 @@ anyone quietly stuck gets caught early.
 
 ## S2 — Onboard it
 
-Say **"onboard me"** in Claude Code, or fill [`onboarding/intake.md`](./onboarding/intake.md) by hand.
+Say **"onboard me"** in Claude Code, or fill [`context/who-i-am.md`](./context/who-i-am.md) by hand.
 
 It asks what your work actually is, where you are heading, what keeps grinding you down, how you
 sound, your rhythm, and the one line you will not cross. The reason you wrote down in M0 goes in here.
@@ -82,9 +82,9 @@ That is the moment it stops being a tool and starts being *your* tool.
 close the morning without. Pick the one that, if it moved every single day, would change your year.
 
 Do not pick content because this OS was built by someone who sells content. If your business moves on
-client conversations, pick clients. You can change it any time by editing the intake.
+client conversations, pick clients. You can change it any time by editing `context/who-i-am.md`.
 
-**Done when:** no `{{ONBOARD}}` placeholders are left in `intake.md`, and you have chosen your one thing.
+**Done when:** no `{{ONBOARD}}` placeholders are left in `context/who-i-am.md`, and you have chosen your one thing.
 
 ---
 
@@ -156,7 +156,7 @@ This is where the OS pays for itself.
 **A1 — one idea, a week of posts.** `/content-plan` plans the week and writes a doc per day under
 `output/`. It works with nothing connected. A calendar connector is optional and comes much later.
 
-**A2 — teach it your voice.** Create a `voice.md` and paste two or three things you have actually
+**A2 — teach it your voice.** Create a `context/voice.md` and paste two or three things you have actually
 written. Then run `/humanize` on a caption and compare before and after. That gap is the whole point.
 
 **A3 — the weekly rhythm.** Plan once a week, ship daily. Keep it boring and repeatable. The

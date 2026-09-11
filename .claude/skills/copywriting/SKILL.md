@@ -15,7 +15,7 @@ action. Part of the **战 (Campaign)** loop — for the page, not the feed.
   placeholder — never fabricate (`framework/operating-principles.md`). Fabricated proof erodes trust
   and is a legal liability.
 - **Voice.** Match your register (short sentences, scene first, no em dashes, no hustle words — your
-  `voice.md`). Building for a client? Use their brand voice and save under their folder.
+  `context/voice.md`). Building for a client? Use their brand voice and save under their folder.
 - Pairs with a frontend build — this skill writes the words; a separate step builds the page. Hand the
   draft to `/humanize` for a final polish pass.
 

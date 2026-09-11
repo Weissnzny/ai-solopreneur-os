@@ -33,15 +33,15 @@ Greet briefly. Then run these steps in order. After each, give a tight summary �
 what it means for today. Keep one step active at a time.
 
 ### Step 0 — First-run kick-off (new users only)
-Before anything else, check whether the user is onboarded: read `onboarding/intake.md`. If it still
+Before anything else, check whether the user is onboarded: read `context/who-i-am.md`. If it still
 holds unfilled `ONBOARD` placeholders (a fresh install), **don't run the normal routine yet** — the OS
 doesn't know what their work is. Instead, run `/kick-off` via the Skill tool: it asks the interview
 (what their work actually is, where they're heading, what keeps grinding them down, **the one thing
 they push forward daily**, their voice + a real writing sample, platforms, working days, the hard
-constraint they protect), fills the intake, and captures `voice.md`. Once the intake is filled, continue
-to Step 1. On every later run the intake is already filled, so skip straight to Step 1.
+constraint they protect), fills `context/who-i-am.md`, and captures `context/voice.md`. Once it is filled, continue
+to Step 1. On every later run it is already filled, so skip straight to Step 1.
 
-Read the intake at the top of every run, not just the first — Step 3 branches on the **daily push**
+Read `context/who-i-am.md` at the top of every run, not just the first — Step 3 branches on the **daily push**
 recorded there, and the user can change it any time by editing the file.
 
 ### Step 1 — Orient
@@ -60,7 +60,7 @@ calendar, read it here (header-resolved if it's a sheet — never hardcode colum
 ### Step 3 — Push the one thing forward (the 战 Campaign guarantee)
 
 The doctrine says ship *"content, a product, a post, a small win"* into the arena — **four kinds of
-visible work, not one.** Read **the one thing you push forward daily** from `onboarding/intake.md` and
+visible work, not one.** Read **the one thing you push forward daily** from `context/who-i-am.md` and
 guard *that*. Never assume content; that's one business model out of four.
 
 **Do not close this step on a working day until that one thing has genuinely moved.** Ending a working
@@ -84,7 +84,7 @@ it — a post, an email, a client update, a deploy. Same gate for all four.
 
 When the work involves words that reach another human, pressure-test them the same way regardless of
 lane: "does this sound like a real person talking, or like copywriting?" Never freelance a
-fake-sounding slogan. Read `voice.md` before drafting.
+fake-sounding slogan. Read `context/voice.md` before drafting.
 
 > **Fresh install with an unfilled daily push?** Don't guess and don't default to content. Ask once —
 > "what's the one thing that has to move today?" — guard that for the session, and offer to run

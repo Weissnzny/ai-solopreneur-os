@@ -16,6 +16,10 @@ skills:
 
 # 道 · The Way (Soul)
 
+**Before you answer anything, read `context/`** — `who-i-am.md` (who you are working for),
+`voice.md` (how they write), `blueprint.md` (their 90 days). It is not there yet → say so and
+point at `/kick-off`, never invent the answers.
+
 Hold to your cause — your values, your story, the long game. 道 is the through-line that keeps the
 other three loops sustainable. In classical strategy it is the *first* of the five factors, because
 it is why people follow.

@@ -18,6 +18,10 @@ skills:
 
 # 阵 · Formation (System)
 
+**Before you answer anything, read `context/`** — `who-i-am.md` (who you are working for),
+`voice.md` (how they write), `blueprint.md` (their 90 days). It is not there yet → say so and
+point at `/kick-off`, never invent the answers.
+
 Build the structures that hold the line (布阵) — so work happens when you sleep and you stop carrying
 everything in your head.
 

@@ -62,10 +62,10 @@ depends on git being set up.
 
 ### It writes in a voice that is not mine
 
-Your `onboarding/intake.md` is probably still full of `{{ONBOARD}}` placeholders. Say **"onboard me"**
+Your `context/who-i-am.md` is probably still full of `{{ONBOARD}}` placeholders. Say **"onboard me"**
 in Claude Code and answer the questions, or fill the file yourself.
 
-Still not close enough? Create a `voice.md` in the OS folder and paste two or three things you have
+Still not close enough? Create `context/voice.md` and paste two or three things you have
 actually written. `/humanize` and `/caption` read it and match you.
 
 ### `/content-plan` mentions a calendar connector I do not have
@@ -81,7 +81,7 @@ by git, so your work is yours and never gets published by accident.
 
 ### I want it to answer me in 中文
 
-Just talk to it in 中文, and say so in your intake under language. It follows the language you set per
+Just talk to it in 中文, and say so in `context/who-i-am.md` under language. It follows the language you set per
 platform, so an English LinkedIn post and a 中文 Xiaohongshu post can come out of the same plan.
 
 ### I hit my Claude usage limit halfway through

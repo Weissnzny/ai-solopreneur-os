@@ -41,7 +41,7 @@ No installer to run, nothing to configure.
 2. **Get the OS** — download this repo as a ZIP (or `git clone` it) into a folder you own.
 3. **Open that folder in VS Code.** Open the level that directly contains `README.md` and `.claude`.
 4. **Onboard** — say **"onboard me"** in Claude Code, or fill
-   [`onboarding/intake.md`](./onboarding/intake.md) so the OS speaks in your voice.
+   [`context/who-i-am.md`](./context/who-i-am.md) so the OS speaks in your voice.
 5. **Prove it** — run **`/system-map`**, then **`/start-day`** and ship your first piece.
 
 📸 **[`INSTALL.md`](./INSTALL.md) walks every step with screenshots.** Full recorded walkthroughs

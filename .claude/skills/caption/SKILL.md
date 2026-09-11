@@ -15,7 +15,7 @@ voice, one of 6 brand hook patterns, and the actual piece you're posting.
 - **NOT** a hashtag farm. Pillar-locked base + 3-5 topic-tuned tags per platform, never a wall of 30.
 
 ## Read first
-- Your voice register — short sentences, scene first, no em dashes, no hustle clichés (`framework/operating-principles.md`, or your own `voice.md`).
+- Your voice register — short sentences, scene first, no em dashes, no hustle clichés (`framework/operating-principles.md`, or your own `context/voice.md`).
 - `framework/operating-principles.md` — **never fabricate.** Every client story / result / number must trace to something real. An upstream script is not proof a story is real — if it carries an unverified claim, don't amplify it; flag it and interview the human.
 
 ## STEP 0 — Intake gate (never skip)

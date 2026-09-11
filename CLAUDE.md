@@ -25,18 +25,28 @@ the canonical vocabulary (use these terms exactly). Don't re-derive the framewor
 - **战 Campaign** — `/content-plan`, `/content`, `/caption`, `/carousel`, `/video-script`, `/storyboard`, `/thumbnail`, `/copywriting`, `/humanize`. Ship daily.
 - **道 The Way** — `/writing-beats`, `/humanize`. Tell the true story; protect what matters.
 
-First run: if `onboarding/intake.md` is unfilled, `/start-day` auto-runs `/kick-off` first.
+First run: if `context/who-i-am.md` is unfilled, `/start-day` auto-runs `/kick-off` first.
 
 Four agents mirror the loops (`knowing`, `formation`, `campaign`, `the-way`) and route a request to the
 right skill via the Skill tool. Orchestrator skills (like `/daily-routine`) invoke others — they never
 re-implement another skill's logic.
 
-## Who the user is
-Read `onboarding/intake.md` for what their work actually is, where they're heading, what keeps grinding
-them down, **the one thing they push forward daily** (content · clients · product · delivery), who they
-serve, their voice, platforms, and the hard constraint they protect (the 道). If it's still full of
-unfilled `ONBOARD` placeholders, offer to onboard them (ask the intake questions, fill the file). If
-they keep a `voice.md`, read it for tone.
+## Who the user is — it all lives in `context/`
+
+**One folder answers "who am I working for". Read `context/` before anything else, every session.**
+`onboarding/` holds what the user RUNS; `context/` holds what this OS READS.
+
+- **`context/who-i-am.md`** — their work, where they're heading, what keeps grinding them down,
+  **the one thing they push forward daily** (content · clients · product · delivery), who they serve,
+  platforms, and the hard constraint they protect (the 道). Written by `/kick-off`. Still full of
+  unfilled `ONBOARD` placeholders → offer to onboard them, never guess the answers.
+- **`context/voice.md`** — a real sample of their own writing. Read it for tone before drafting a word.
+- **`context/blueprint.md`** — their 90-day plan as the four loops (知 what's true · 阵 what to build ·
+  战 what ships · 道 who it's for). Written by `onboarding/blueprint-prompt.md`, which runs **after**
+  `/kick-off`. Not there yet → point them at it instead of inventing a plan.
+
+Work from what `context/` says rather than asking them again. Anything else they drop in `context/`
+is theirs too: read it, treat it as true, never overwrite it without asking.
 
 **The daily push is not a preference — it's what `/start-day` guards.** Never assume it's content; that
 is one business model out of four. When it's unset, ask rather than default.

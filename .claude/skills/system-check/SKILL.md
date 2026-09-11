@@ -17,7 +17,7 @@ Each loop asks one question. The check measures whether your install can actuall
 
 | Loop | Question it answers | What's tested |
 |---|---|---|
-| **知 Knowing** | *Does the OS know you and your field?* | `onboarding/intake.md` filled, `voice.md` present, framework read, the Arsenal (`wiki/`) stocked beyond examples |
+| **知 Knowing** | *Does the OS know you and your field?* | `context/who-i-am.md` filled, `context/voice.md` present, framework read, the Arsenal (`wiki/`) stocked beyond examples |
 | **阵 Formation** | *Are the structures built to hold the line?* | skills + loop-agents present and matched by command shims, at least one connector wired, clean `.env` |
 | **战 Campaign** | *Are you shipping real work into the arena?* | a daily rhythm in use, recent shipped activity, a second-brain board with recent entries |
 | **道 The Way** | *Will this still feel like yours — sustainable and honest?* | operating-principles installed, your "why" captured, a `/shutdown` close, no-fabrication discipline intact |
@@ -25,19 +25,19 @@ Each loop asks one question. The check measures whether your install can actuall
 ## Execution
 ### Step 1 — Discover the shape (Glob + targeted Read, frontmatter only — fast)
 - **Prior check (for the trend line):** glob `output/system-check/check-*.md`; if any exist, read the **newest** one and lift its `total` + four loop scores from its frontmatter. None yet → this run is the baseline.
-- **知 Knowing:** is `onboarding/intake.md` filled (no `{{ONBOARD}}` left)? does `voice.md` exist with a real sample? are `framework/` + `glossary.md` present? does `wiki/` hold real entries beyond the `example-*` files? **and** does `wiki/log.md` record a recent `lint` op — or is the Arsenal stocked but never health-checked?
+- **知 Knowing:** is `context/who-i-am.md` filled (no `{{ONBOARD}}` left)? does `context/voice.md` exist with a real sample? are `framework/` + `glossary.md` present? does `wiki/` hold real entries beyond the `example-*` files? **and** does `wiki/log.md` record a recent `lint` op — or is the Arsenal stocked but never health-checked?
 - **阵 Formation:** count `.claude/skills/*/SKILL.md`; count `.claude/agents/*.md` (the 4 loop-agents: knowing · formation · campaign · the-way); confirm each skill has a command shim; does `.env` hold any non-empty key, and which connectors in `connectors/README.md` are actually wired?
 - **战 Campaign:** recent files under `output/` or a recent `brain/board.json` `updated`; whether a daily routine (`/start-day` / `/shutdown`) is in use.
-- **道 The Way:** is `framework/operating-principles.md` present and unmodified? does the intake capture your *why* / non-negotiables (values, boundaries — not just what you sell)? is `/shutdown` part of the rhythm? does `voice.md` anchor a true voice?
+- **道 The Way:** is `framework/operating-principles.md` present and unmodified? does `context/who-i-am.md` capture your *why* / non-negotiables (values, boundaries — not just what you sell)? is `/shutdown` part of the rhythm? does `context/voice.md` anchor a true voice?
 
 ### Step 2 — Score each loop (25 pts)
-**知 Knowing (25):** intake filled, no `{{ONBOARD}}` (8) · `voice.md` present with a real sample (5) · framework + glossary present (4) · the Arsenal (`wiki/`) has real entries beyond the examples (8).
+**知 Knowing (25):** `context/who-i-am.md` filled, no `{{ONBOARD}}` (8) · `context/voice.md` present with a real sample (5) · framework + glossary present (4) · the Arsenal (`wiki/`) has real entries beyond the examples (8).
 **阵 Formation (25):** 3+ skills (6) · every skill has a command shim (4) · the 4 loop-agents present (5) · at least one connector wired (6) · clean `.env` from template, no secrets in the repo (4).
 **战 Campaign (25):** you run a daily rhythm — `/start-day` / `/shutdown` (10) · shipped activity in `output/` or the board within ~30 days (10) · a second-brain board (`brain/board.json`) exists with recent entries (5).
-**道 The Way (25):** `framework/operating-principles.md` present & unmodified — the 军纪 are installed (8) · your *why* / non-negotiables captured in intake (7) · a `/shutdown` close is in the rhythm — you actually stop, evenings protected (5) · no-fabrication discipline intact — `voice.md` anchors a true voice, content traces to real sources (5).
+**道 The Way (25):** `framework/operating-principles.md` present & unmodified — the 军纪 are installed (8) · your *why* / non-negotiables captured in `context/who-i-am.md` (7) · a `/shutdown` close is in the rhythm — you actually stop, evenings protected (5) · no-fabrication discipline intact — `context/voice.md` anchors a true voice, content traces to real sources (5).
 
 ### Step 3 — Top 3 gaps by leverage
-leverage = (points lost) × (impact multiplier). Multipliers: intake unfilled — Knowing is blind **3×** · no connector wired — Formation can't reach **3×** · 0 skills or missing loop-agents — no Formation **2×** · no daily rhythm — no Campaign **2×** · operating-principles missing or *why* uncaptured — the Way unguarded **2×** · all-read-only connections **2×** · Arsenal still just examples — Knowing under-armed **1.5×** · everything else **1×**. Sort descending, take top 3, write a one-line concrete next step for each (e.g. "run `/kick-off`", "wire a connector per `connectors/README.md`", "run `/start-day` tomorrow").
+leverage = (points lost) × (impact multiplier). Multipliers: `context/who-i-am.md` unfilled — Knowing is blind **3×** · no connector wired — Formation can't reach **3×** · 0 skills or missing loop-agents — no Formation **2×** · no daily rhythm — no Campaign **2×** · operating-principles missing or *why* uncaptured — the Way unguarded **2×** · all-read-only connections **2×** · Arsenal still just examples — Knowing under-armed **1.5×** · everything else **1×**. Sort descending, take top 3, write a one-line concrete next step for each (e.g. "run `/kick-off`", "wire a connector per `connectors/README.md`", "run `/start-day` tomorrow").
 
 ### Step 4 — Output the report (chat, Markdown)
 ```

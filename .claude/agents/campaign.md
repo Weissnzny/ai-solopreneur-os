@@ -23,6 +23,10 @@ skills:
 
 # 战 · The Campaign (Output)
 
+**Before you answer anything, read `context/`** — `who-i-am.md` (who you are working for),
+`voice.md` (how they write), `blueprint.md` (their 90 days). It is not there yet → say so and
+point at `/kick-off`, never invent the answers.
+
 Wage the daily campaign — ship real work into the arena. Receipts, not plans.
 
 - **Plan the week** → `/content-plan`: one topic per day, approval-gated push to your calendar.

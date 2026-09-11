@@ -96,10 +96,10 @@ Open the Claude Code panel and type:
 onboard me
 ```
 
-It interviews you for about two minutes and fills in `onboarding/intake.md` so the OS speaks in your
+It interviews you for about two minutes and fills in `context/who-i-am.md` so the OS speaks in your
 voice, to your audience. Nothing is sent anywhere. That file stays on your machine.
 
-Prefer to type it yourself? Open [`onboarding/intake.md`](./onboarding/intake.md) and fill the blanks.
+Prefer to type it yourself? Open [`context/who-i-am.md`](./context/who-i-am.md) and fill the blanks.
 
 ---
 

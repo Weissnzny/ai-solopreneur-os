@@ -1,4 +1,4 @@
-# Onboarding intake — make this OS yours (≈4 minutes)
+# Who I am — make this OS yours (≈4 minutes)
 
 Fill in the blanks below, then save. The OS reads this file to learn **what your work actually is** and
 **who you are**, so it pushes the right thing forward every morning and speaks in your voice. Nothing
@@ -49,7 +49,7 @@ here is sent anywhere — it's a local file in your OS folder.
 
 - **Sounds like:** {{ONBOARD: short + warm? sharp + funny? calm + plain? give 2-3 words}}
 - **Never sounds like:** {{ONBOARD: words/registers to avoid — e.g. "guru", "hustle", corporate-speak}}
-- *(Important)* paste 2-3 things you've **actually written** into `voice.md` so `/humanize`, `/caption`
+- *(Important)* paste 2-3 things you've **actually written** into `context/voice.md` so `/humanize`, `/caption`
   and `/writing-beats` can match you. Paste them raw — don't type fresh prose. This matters even if you
   never post publicly; it's how your emails and proposals stop sounding like a robot.
 

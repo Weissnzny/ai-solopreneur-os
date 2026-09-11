@@ -9,6 +9,6 @@ next session, before new work.
 holds the detail; never copy the detail here. A trivial session gets an honest one-liner.
 
 This folder is a map, not a store. Facts live in the file that owns them (`memory/`, `wiki/`,
-`onboarding/intake.md`). An entry here says where to look.
+`context/who-i-am.md`). An entry here says where to look.
 
 Template: `_template.md`. Your real notes are yours: `.gitignore` keeps them out of any repo you push.

@@ -1,37 +1,38 @@
 ---
 name: kick-off
-description: First-run onboarding for a new user of the AI Solopreneur OS. Use on Day 1, when someone says "onboard me", "set me up", "kick off", "let's get started", or has just installed the OS. Conducts a short interview, fills onboarding/intake.md, and captures a real voice sample — so every skill speaks in the user's voice to their audience. Idempotent — re-run any time after editing the intake.
+description: First-run onboarding for a new user of the AI Solopreneur OS. Use on Day 1, when someone says "onboard me", "set me up", "kick off", "let's get started", or has just installed the OS. Conducts a short interview, fills context/who-i-am.md, and captures a real voice sample — so every skill speaks in the user's voice to their audience. Idempotent — re-run any time after editing the file.
 ---
 
 # /kick-off — first-run onboarding (令 The Morning Command, day one)
 
-The door into the OS. Runs a short interview, writes the answers into `onboarding/intake.md`, and
+The door into the OS. Runs a short interview, writes the answers into `context/who-i-am.md`, and
 captures a real writing sample so the OS sounds like the user — not like generic AI. Re-runnable any
 time.
 
 ## Output Standard
-The output **is** the scaffold: a filled `onboarding/intake.md` + a `voice.md` at the OS root. No
+The output **is** the scaffold: `context/who-i-am.md` (the answers) + `context/voice.md` (the
+writing sample). Both land in `context/`, which is the folder the OS reads first. No
 separate branded artifact. No `.env` writes — connectors come later (`connectors/README.md`).
 
 ## When NOT to add steps
-The interview is capped. Don't invent extra questions; the OS grows by the user editing the intake and
-re-running, or adding skills via `/find-skill`.
+The interview is capped. Don't invent extra questions; the OS grows by the user editing
+`context/who-i-am.md` and re-running, or adding skills via `/find-skill`.
 
 ## Execution
 
-### Step 1 — Read the intake
-Read `onboarding/intake.md`. Check which fields still hold unfilled `ONBOARD` placeholders.
+### Step 1 — Read `context/who-i-am.md`
+Read `context/who-i-am.md`. Check which fields still hold unfilled `ONBOARD` placeholders.
 - **All filled** → skip to Step 3 (confirm + wow).
 - **Some filled** → say which are answered; ask whether to fill the rest now.
 - **None filled (fresh install)** → run Step 2 conversationally.
 
-### Step 2 — The interview (ask one at a time; write each answer into the intake as you go)
+### Step 2 — The interview (ask one at a time; write each answer into `context/who-i-am.md` as you go)
 
 **Ask with an example, EVERY time (hard rule — for non-technical members).** A first-time owner
 freezes at a blank question. So never fire a bare question. With each one: (a) ask it plainly, (b) show
 **one short sample answer** so they see the shape, (c) tell them how to fill it in — *"just answer in
 your own words, something like this."* Pull the sample from the matching `{{ONBOARD: …}}` field in
-`onboarding/intake.md` (every field already carries an example). If they still freeze, offer 2-3 options
+`context/who-i-am.md` (every field already carries an example). If they still freeze, offer 2-3 options
 to pick from. The goal is that they never stare at a blank — they always have an example to copy the
 shape of. This is what makes the OS fillable by someone who has never used AI seriously before.
 
@@ -48,7 +49,7 @@ is. If they give you an abstraction, ask "what did that look like last Tuesday?"
 4. **What it should carry** — *"What's the one thing you push forward every day?"* Resolve to exactly
    one of **content · clients · product · delivery**, and say plainly what it decides:
    > "This sets what `/start-day` won't let you close the morning without. Pick the one that, if it
-   > moved every day, would change your year. You can change it later by editing the intake."
+   > moved every day, would change your year. You can change it later by editing context/who-i-am.md."
 
    If they hesitate, ask what they'd be most upset to look back on after a month of nothing. Do not
    default to `content` — that's the author's business, not necessarily theirs.
@@ -72,12 +73,12 @@ is. If they give you an abstraction, ask "what did that look like last Tuesday?"
 10. **Brand color** (optional) — a primary hex.
 
 ### Step 3 — Write the files
-1. Fill every field in `onboarding/intake.md` from the answers (replace the unfilled `ONBOARD` tokens).
-2. Write `voice.md` at the OS root: paste the samples verbatim under a short header — *"Match this
+1. Fill every field in `context/who-i-am.md` from the answers (replace the unfilled `ONBOARD` tokens).
+2. Write `context/voice.md`: paste the samples verbatim under a short header — *"Match this
    register when drafting. Don't fake this voice on external content without showing me first."*
    `/humanize`, `/caption`, `/content`, and `/writing-beats` all read this.
 3. If a brand hex was given, remind the user to set `--brand` in `design-system/tokens.css`.
-Back up any existing intake/voice to `output/kick-off-backup-{date}/` before overwriting.
+Back up any existing who-i-am/voice files to `output/kick-off-backup-{date}/` before overwriting.
 
 ### Step 4 — The closing screen
 Read their **daily push** back to them, in their own words, so it lands as a commitment rather than a
@@ -87,6 +88,13 @@ setting. Fill the middle line from what they answered:
 ✓ Kick-off done. The OS knows your work, where you're heading, what's grinding you down,
   how you sound, and the line you won't cross.
 
+Saved to:      context/who-i-am.md   your answers
+               context/voice.md      how you write
+               Everything in context/ is what this OS reads before it does any job.
+
+Do this next: open onboarding/blueprint-prompt.md and run it.
+               It turns these answers into context/blueprint.md — your next 90 days,
+               written as the four loops. It only works because you just did this.
 Every morning: /start-day won't let you close it until <their daily push> moves.
 This week:     read framework/ai-solopreneur-os.md — the four loops you'll run.
 Anytime:       /system-check to score your OS and see what to wire next.
@@ -97,12 +105,12 @@ Then name the one thing they said grinds them down, and say it out loud:
 
 ## Critical rules
 0. **Every question ships with an example.** Never ask a bare question — show a short sample answer
-   (from the intake's `{{ONBOARD: …}}` examples) and say "answer in your own words, like this." A blank
+   (from the examples already in `context/who-i-am.md`) and say "answer in your own words, like this." A blank
    prompt loses a non-technical member; an example keeps them moving.
 1. The interview is capped — don't add questions in conversation.
 2. **Never default the daily push to `content`.** It must be chosen out loud. Content is the author's
    business model, not a universal one; assuming it is the fastest way to lose a member in week two.
 3. **Voice paste cannot be skipped or typed** — refuse and ask for a real paste.
-4. Write the files in one batch after the interview; the user iterates by editing the intake and re-running.
-5. Idempotent — re-running with an edited intake refreshes the files and backs up the originals.
+4. Write the files in one batch after the interview; the user iterates by editing `context/who-i-am.md` and re-running.
+5. Idempotent — re-running with an edited `context/who-i-am.md` refreshes the files and backs up the originals.
 6. No `.env` writes, no paid calls, no publishing.

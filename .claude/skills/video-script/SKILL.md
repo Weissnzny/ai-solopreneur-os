@@ -17,7 +17,7 @@ required. Part of the **战 (Campaign)** loop.
 
 ## Read first
 - Your voice register — short sentences, warmth + a real admission, family lens, one CTA only, no em
-  dashes, no hustle clichés (`framework/operating-principles.md`, or your own `voice.md`).
+  dashes, no hustle clichés (`framework/operating-principles.md`, or your own `context/voice.md`).
 
 ## Output structure (always)
 1. **Header** — Topic · Pillar · Day · Length (40s).

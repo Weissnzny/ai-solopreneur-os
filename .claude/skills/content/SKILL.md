@@ -17,7 +17,7 @@ design.**
 ## Inputs this skill reads
 - Topic/idea from you (in chat).
 - Your voice register — short sentences, scene-first, no em dashes, no hustle clichés. (Keep a
-  `voice.md` in your OS and read it here if you have one; otherwise use `framework/operating-principles.md`.)
+  `context/voice.md` in your OS and read it here if you have one; otherwise use `framework/operating-principles.md`.)
 - Your audience — who this content is for.
 
 ## The 8 Departments

@@ -27,7 +27,7 @@ obvious as slop — removing AI patterns is only half the job. The other half is
 - The text the user pasted or pointed at.
 - A voice sample if one was provided (inline or file path).
 - Your voice register — short sentences, real pauses, fragments OK, scene first, no em dashes, no
-  hustle clichés. (Drop a `voice.md` next to your project and read it here if you keep one.)
+  hustle clichés. (Read `context/voice.md` here if the user keeps one.)
 
 ## Step 0 — Intake (one-line ack)
 Confirm before editing: source text · voice mode (sample or default) · target tone · length budget

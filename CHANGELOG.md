@@ -5,6 +5,59 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.9.0 — 2026-09-11 — Everything the OS knows about you now lives in one folder
+
+Weiss asked the question a learner is going to ask: *"once they have answered `/kick-off`, where does
+it store? context folder or somewhere else?"* The honest answer was "neither, exactly" — the answers
+went to `onboarding/intake.md`, the writing sample to a `voice.md` at the OS root, and `context/`,
+the folder `CLAUDE.md` tells Claude to read first, stayed empty until you separately ran the blueprint
+prompt. Three places for one idea. This makes it one.
+
+- **`onboarding/intake.md` → `context/who-i-am.md`.** Same questions, same examples, new home and a
+  name that says what it is.
+- **`voice.md` → `context/voice.md`.** It was loose at the OS root; it is context, so it lives with
+  the rest of your context.
+- **The split, stated once:** `onboarding/` is what you RUN, `context/` is what the OS READS. Nothing
+  else to remember.
+- **`CLAUDE.md` rewritten around it.** One section names the three files — `who-i-am.md` (who you are
+  working for), `voice.md` (how you write), `blueprint.md` (your 90 days) — and says to work from
+  what they say rather than asking you again. Anything else you drop in `context/` is read too, and
+  never overwritten without asking.
+- **The four loop agents now read it.** `knowing`, `formation`, `campaign` and `the-way` carried no
+  pointer to `context/` at all, so a request routed to an agent could be answered by an agent that
+  had never read who you are. Each one now reads `context/` before it answers, and says so and points
+  at `/kick-off` when it is not there, rather than inventing your answers.
+- **`/kick-off` tells you where it put things.** The closing screen now prints the two paths and one
+  line explaining what `context/` is for. Weiss had to read the skill file to find that out; a learner
+  should not have to.
+- Every reference swept: 10 skills, `CLAUDE.md`, `INSTALL.md`, `LEARN.md`, `README.md`,
+  `TROUBLESHOOTING.md`, `journal/CLAUDE.md`, `memory/MEMORY.md`, `onboarding/blueprint-prompt.md`.
+  Zero mentions of the old paths remain.
+
+---
+
+## 0.8.0 — 2026-09-09 — The blueprint: `/kick-off` now leads somewhere, and `context/` is read
+
+`/kick-off` filled in who you are and then stopped. `context/` shipped empty and nothing ever read it.
+So the OS knew you, and still could not plan with you. This closes that gap.
+
+- **`onboarding/blueprint-prompt.md` (new):** the prompt you run straight after `/kick-off`. It reads
+  your intake and writes `context/blueprint.md` — your next 90 days, shaped as the four loops
+  (知 what's true · 阵 what to build · 战 what ships · 道 who it's for). It refuses to run while your
+  intake still has `ONBOARD` placeholders, because a blueprint built on blanks is a blueprint for
+  someone else's business.
+- **`CLAUDE.md` now reads `context/`.** Added to "Who the user is": read the user's own material, and
+  read `context/blueprint.md` before planning anything with them. Without this the blueprint was
+  written and then ignored the next session.
+- **`/kick-off` hands off.** Its closing screen opens with the next move ("open
+  `onboarding/blueprint-prompt.md` and run it — it only works because you just did this"), so the two
+  steps read as one chain instead of two unrelated commands.
+- **It branches on your daily push, not on content.** The blueprint is built for whichever of
+  content · clients · product · delivery you chose in the intake. Same rule as `/start-day`: content is
+  one business model out of four, never the default.
+
+---
+
 ## 0.7.0 — 2026-09-07 — Tokens: size caps, a session journal, memory that saves as it happens
 
 Every file the OS reads costs tokens, and a long session costs more per message. The OS now carries

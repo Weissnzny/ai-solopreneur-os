@@ -19,7 +19,7 @@ own image/video engine, under its own approval gate (`framework/operating-princi
 - **NOT** a replacement for filming. Default is hybrid — you still film yourself; AI only fills gaps.
 
 ## Read first
-- Your `voice.md` — short sentences, scene first, no em dashes.
+- Your `context/voice.md` — short sentences, scene first, no em dashes.
 - *(Optional)* if the brief names an aesthetic ("cottagecore", "cyberpunk", "Y2K"), weave real style
   vocabulary (colours → palette · motifs → props · values → mood) into the prompt. Opt-in; no fabrication.
 
