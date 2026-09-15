@@ -21,7 +21,11 @@ You need three things:
 | 2 | **VS Code** (free) | The window everything happens in. |
 | 3 | About **2 GB free space** and 20 minutes | Mostly downloads. |
 
-You do **not** need: a paid API key, a server, Node, Python, a GitHub account, or any coding.
+You do **not** need: a paid API key, a server, Python, a GitHub account, or any coding.
+
+After the OS is installed, add two more free tools, **Git** and **Node.js**. You never use them
+yourself: Claude Code needs them when you ask it to install a skill, an MCP or a CLI. The classroom
+lesson **Git + Node.js** shows each download with a picture.
 
 ---
 
