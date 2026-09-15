@@ -46,15 +46,50 @@ spine pillars (势 律 令). A skill that doesn't fit goes in a clearly-named cl
 - `cadence` = one word: `Daily` (you run a routine), `Ad-hoc` (on demand), or `Dormant`.
 - `summary` = ONE plain sentence stating the OS's state today.
 
-### Step 3 — Render the map
-Produce a single self-contained HTML one-pager (inline CSS, no external assets) laid out by the five
-pillars, with each node carrying a state:
-- `live` — present / wired / active
-- `pending` — planned or documented but not wired
-- `off` — absent or parked
+### Step 3 — Fill the template (never hand-write the HTML)
+The look lives in **`.claude/skills/system-map/template.html`** so every run looks the same. Do not
+restyle it, rewrite it, or build your own page. Fill exactly two slots and change nothing else:
 
-Use the design tokens in `design-system/` for colors so it matches the OS brand. Keep node counts
-tight enough to read in under 2 minutes — summarize a long tail as a `+N more` node.
+1. **Tokens.** Replace the line `/*__TOKENS__*/` with the full contents of `design-system/tokens.css`.
+   That is how a rebrand reaches the map.
+2. **Data.** Replace `__MAP_DATA__` (inside `<script type="application/json" id="map-data">`) with the
+   scan as JSON, in this shape. Escape every `</` in the JSON as `<\/`.
+
+```json
+{
+  "date": "YYYY-MM-DD",
+  "os_version": "contents of VERSION",
+  "summary": "ONE plain sentence: the state of the OS today",
+  "stats": { "skills": 17, "commands": 19, "agents": 4,
+             "connectors_wired": 0, "connectors_total": 3, "cadence": "Daily | Ad-hoc | Dormant" },
+  "next_move": { "gap": "the single most notable gap, one sentence",
+                 "command": "/the-command-that-closes-it",
+                 "why": "one short line: what running it changes" },
+  "context": { "ready": 0, "total": 3,
+               "files": [ { "name": "who-i-am.md", "state": "live|pending|off", "note": "e.g. 19 blanks left" } ] },
+  "loops": [ { "zh": "知", "en": "Knowing", "agent": "knowing", "line": "the loop's one line from CLAUDE.md",
+               "skills": [ { "cmd": "/system-map", "state": "live", "desc": "first sentence of its description" } ] } ],
+  "spine": [ { "zh": "势", "en": "The Terrain", "state": "live", "line": "short line",
+               "items": [ { "label": "/system-map", "state": "live", "note": "short note" } ] } ],
+  "connectors": [ { "name": "Google Calendar", "state": "live|pending|off",
+                    "what": "what it gives you, one sentence", "how": "how to switch it on, one sentence" } ],
+  "wiring": { "skills": 17, "shimmed": 17, "aliases": ["start-day", "shutdown"], "orphans": [] }
+}
+```
+
+Rules for the data (the template shows long text behind a click, so keep the page scannable):
+- **Loops** follow the four-loops list in `CLAUDE.md`, in order 知 阵 战 道. A skill may sit in two loops.
+  The page shows five per loop and folds the rest behind `+N more`; list them all, never drop one.
+- **`desc`** is the first sentence of the skill's own `description`, at most ~200 characters. Replace
+  any em dash with a comma. Never invent what a skill does.
+- **Spine** is 势 The Terrain · 律 The Rhythm · 令 The Morning Command · 库 The Arsenal, each with what
+  is really there (e.g. wiki templates vs real entries).
+- **Context** lists `who-i-am.md`, `voice.md`, `blueprint.md`: `live` = filled, `pending` = exists with
+  blanks (count the `ONBOARD` markers), `off` = missing. `ready` counts only `live`.
+- **States are honest.** `live` = present and working · `pending` = there but not switched on ·
+  `off` = missing. A connector is `live` only if its key is actually present in `.env` (read key NAMES,
+  never print a value). Documented is `pending`, not `live`.
+- Plain words, no em dashes, no jargon. Everything must come from the scan; never ship example data.
 
 ### Step 4 — Save and report
 1. Write to `output/system-map/system-map-{date}.html` (create the folder if needed). This is the only write.
@@ -66,9 +101,11 @@ tight enough to read in under 2 minutes — summarize a long tail as a `+N more`
 - **Speed matters.** Glob + frontmatter reads only. Whole run under ~60s.
 - **Live, never stale.** Always overwrite from the scan; never ship placeholder nodes.
 - **Honest states.** A connector is `live` only if its key is actually present. Documented ≠ wired.
-- **No prose creep.** This is a map. Resist turning nodes into sentences.
+- **No prose creep.** This is a map. Short labels on the page; the longer text lives behind a click
+  (the command drawer, `+N more`, and the fold-outs), which the template already handles.
+- **Same look every run.** If the page looks wrong, fix `template.html` once; never restyle a single run.
 - **2-minute test.** Before finishing: could someone glance at this and know the OS's state in two minutes?
 
 ## Output Standard
-Format: HTML one-pager (node diagram). Variant: OS default tokens (`design-system/`). Save to
+Format: HTML one-pager, filled from `template.html`. Variant: OS default tokens (`design-system/`). Save to
 `output/system-map/`. No paid API, no external sync.

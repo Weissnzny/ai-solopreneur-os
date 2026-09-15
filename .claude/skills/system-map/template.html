@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System Map · AI Solopreneur OS</title>
+<!--
+  /system-map template. The LOOK lives here and nowhere else, so every run looks the same.
+  The skill fills exactly two slots and changes nothing else:
+    1. the tokens slot inside <style>   <- the whole of design-system/tokens.css
+    2. the data slot inside #map-data   <- the scan, as JSON (schema in SKILL.md)
+  Self-contained on purpose: no web fonts, no CDN, no images. It opens offline.
+-->
+<style>
+/*__TOKENS__*/
+
+:root {
+  --g:        var(--dark-ground, #0f1f17);
+  --fg:       var(--on-dark, #eaf3ee);
+  --b:        var(--brand, #236345);
+  --bd:       var(--brand-deep, #143a29);
+  --acc:      var(--brand-accent, #6ee09a);
+  --dim:      color-mix(in oklab, var(--fg) 62%, transparent);
+  --faint:    color-mix(in oklab, var(--fg) 12%, transparent);
+  --hair:     color-mix(in oklab, var(--fg) 14%, transparent);
+  --card:     color-mix(in oklab, var(--bd) 55%, var(--g));
+  --live:     var(--acc);
+  --pending:  #f0b54a;
+  --off:      color-mix(in oklab, var(--fg) 38%, transparent);
+  --r:        var(--radius, 14px);
+  --display:  "Bahnschrift", "DIN Alternate", "Avenir Next Condensed", "Segoe UI Variable Display", var(--font-sans, system-ui);
+  --body:     var(--font-cjk, var(--font-sans, system-ui));
+  --mono:     var(--font-mono, ui-monospace, "Cascadia Code", Consolas, monospace);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--fg);
+  font: 15px/1.55 var(--body);
+  background-color: var(--g);
+  background-image:
+    radial-gradient(1100px 620px at 88% -8%, color-mix(in oklab, var(--b) 55%, transparent), transparent 62%),
+    radial-gradient(900px 700px at -10% 108%, color-mix(in oklab, var(--bd) 90%, transparent), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'><g fill='none' stroke='%23ffffff' stroke-opacity='0.055' stroke-width='1.2'><path d='M450 120c170 0 300 110 300 300s-140 330-320 330-310-120-310-320 160-310 330-310z'/><path d='M450 180c140 0 240 90 240 245s-115 270-265 270-250-100-250-265 135-250 275-250z'/><path d='M452 240c105 0 180 70 180 185s-85 205-200 205-190-78-190-200 100-190 210-190z'/><path d='M455 300c72 0 120 48 120 125s-58 140-135 140-128-54-128-135 70-130 143-130z'/><path d='M458 360c38 0 62 26 62 66s-30 74-70 74-66-28-66-70 36-70 74-70z'/><path d='M60 80c120-40 260 10 330-40M520 60c110 30 230-20 330 20M40 820c160 30 250-40 400 0s250 40 420-10'/></g></svg>");
+  background-size: auto, auto, 900px 900px;
+  background-attachment: fixed, fixed, scroll;
+}
+body::after {
+  content: "";
+  position: fixed; inset: 0; pointer-events: none; z-index: 60;
+  opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 40px 24px 120px; }
+.mono { font-family: var(--mono); }
+.eyebrow {
+  font: 600 11.5px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase;
+  color: var(--acc); margin: 0 0 14px;
+}
+.eyebrow b { color: var(--fg); font-weight: 600; }
+.eyebrow .ver {
+  display: inline-block; margin-left: 12px; padding: 5px 9px; border-radius: 999px;
+  font: 700 11px/1 var(--mono); letter-spacing: .08em; text-transform: none;
+  color: var(--g); background: var(--acc); vertical-align: 1px;
+}
+
+/* ---------- state pill + dot ---------- */
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; background: var(--off); }
+[data-state="live"] > .dot, .dot[data-state="live"] { background: var(--live); box-shadow: 0 0 0 3px color-mix(in oklab, var(--live) 22%, transparent); }
+[data-state="pending"] > .dot, .dot[data-state="pending"] { background: var(--pending); box-shadow: 0 0 0 3px color-mix(in oklab, var(--pending) 22%, transparent); }
+.pill {
+  display: inline-flex; align-items: center; gap: 7px;
+  font: 600 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase;
+  padding: 6px 10px; border-radius: 999px; border: 1px solid var(--hair); color: var(--dim);
+}
+.pill[data-state="live"] { color: var(--live); border-color: color-mix(in oklab, var(--live) 40%, transparent); }
+.pill[data-state="pending"] { color: var(--pending); border-color: color-mix(in oklab, var(--pending) 40%, transparent); }
+
+/* ---------- hero ---------- */
+.hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; align-items: end; margin-bottom: 26px; }
+.hero h1 {
+  font-family: var(--display); font-stretch: 78%; font-weight: 700;
+  font-size: clamp(54px, 9vw, 112px); line-height: .86; letter-spacing: -.02em;
+  margin: 0; text-transform: uppercase;
+}
+.hero h1 span { display: block; color: transparent; -webkit-text-stroke: 1.4px var(--acc); }
+.summary { margin: 18px 0 0; max-width: 34ch; font-size: clamp(17px, 2vw, 21px); line-height: 1.4; color: var(--fg); }
+.stamp { margin-top: 12px; font: 500 12px/1.4 var(--mono); color: var(--dim); }
+
+.gauges { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gauge {
+  position: relative; padding: 16px 16px 14px; border-radius: var(--r);
+  background: linear-gradient(160deg, color-mix(in oklab, var(--fg) 7%, transparent), color-mix(in oklab, var(--fg) 2%, transparent));
+  border: 1px solid var(--hair); overflow: hidden;
+}
+.gauge .k { font: 600 10.5px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.gauge .v {
+  font-family: var(--display); font-stretch: 82%; font-weight: 700;
+  font-size: 44px; line-height: 1; margin: 10px 0 6px; font-variant-numeric: tabular-nums;
+}
+.gauge .v small { font-size: 22px; color: var(--dim); font-weight: 600; }
+.gauge .s { font-size: 12.5px; color: var(--dim); }
+.segs { display: flex; gap: 4px; margin-top: 8px; }
+.segs i { flex: 1; height: 6px; border-radius: 3px; background: var(--faint); }
+.segs i.on { background: var(--live); }
+.gauge .word { font-size: 34px; display: flex; align-items: center; gap: 12px; }
+.gauge .word .dot { width: 12px; height: 12px; }
+
+/* ---------- next move ---------- */
+.beacon {
+  position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center;
+  padding: 22px 24px; margin: 8px 0 44px; border-radius: calc(var(--r) + 4px);
+  background:
+    linear-gradient(100deg, color-mix(in oklab, var(--pending) 18%, transparent), transparent 55%),
+    color-mix(in oklab, var(--g) 70%, black);
+  border: 1px solid color-mix(in oklab, var(--pending) 45%, transparent);
+  box-shadow: 0 30px 80px -40px color-mix(in oklab, var(--pending) 60%, transparent);
+}
+.beacon .signal { position: relative; width: 46px; height: 46px; display: grid; place-items: center; }
+.beacon .signal::before, .beacon .signal::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  border: 2px solid var(--pending); opacity: .9;
+}
+.beacon .signal::after { animation: ping 2.4s cubic-bezier(.2,.6,.2,1) infinite; }
+.beacon .signal b { width: 12px; height: 12px; border-radius: 50%; background: var(--pending); }
+.beacon h2 { margin: 0 0 4px; font: 600 11.5px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--pending); }
+.beacon p { margin: 0; font-size: 17px; line-height: 1.45; }
+.beacon .why { margin-top: 6px; font-size: 13.5px; color: var(--dim); }
+.cmd {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  font: 600 16px/1 var(--mono); color: var(--g); background: var(--pending);
+  border: 0; border-radius: 999px; padding: 13px 18px; white-space: nowrap;
+}
+.cmd:hover { filter: brightness(1.08); }
+.cmd .copy { font: 600 10.5px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; opacity: .75; }
+
+/* ---------- section heads ---------- */
+.sec { margin: 0 0 48px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--hair); padding-bottom: 10px; }
+.sec-head h2 { margin: 0; font-family: var(--display); font-stretch: 80%; font-weight: 700; font-size: 26px; text-transform: uppercase; letter-spacing: .01em; }
+.sec-head h2 .zh { font-family: var(--body); font-weight: 700; color: var(--acc); margin-right: 10px; }
+.sec-head p { margin: 0; font-size: 13px; color: var(--dim); text-align: right; }
+
+/* ---------- compass ---------- */
+.compass { display: grid; grid-template-columns: 1fr minmax(230px, 280px) 1fr; grid-template-rows: auto auto; gap: 14px; }
+.loop:nth-of-type(1) { grid-column: 1; grid-row: 1; }
+.loop:nth-of-type(2) { grid-column: 3; grid-row: 1; }
+.loop:nth-of-type(3) { grid-column: 1; grid-row: 2; }
+.loop:nth-of-type(4) { grid-column: 3; grid-row: 2; }
+.you { grid-column: 2; grid-row: 1 / span 2; }
+
+.loop {
+  position: relative; overflow: hidden; padding: 20px 20px 18px; border-radius: var(--r);
+  background: color-mix(in oklab, var(--card) 88%, transparent); border: 1px solid var(--hair);
+}
+.loop .wm {
+  position: absolute; right: -8px; top: -30px; font: 800 150px/1 var(--body);
+  color: var(--fg); opacity: .045; pointer-events: none; user-select: none;
+}
+.loop header { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+.loop .name .zh { font: 700 30px/1 var(--body); color: var(--acc); }
+.loop .name .en { display: block; margin-top: 6px; font-family: var(--display); font-stretch: 85%; font-size: 17px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.loop .agent { font: 500 11px/1 var(--mono); color: var(--dim); border: 1px solid var(--hair); padding: 6px 8px; border-radius: 6px; white-space: nowrap; }
+.loop .line { margin: 10px 0 14px; font-size: 13.5px; color: var(--dim); }
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+  font: 500 12.5px/1 var(--mono); color: var(--fg);
+  background: color-mix(in oklab, var(--fg) 6%, transparent);
+  border: 1px solid var(--hair); border-radius: 999px; padding: 8px 12px;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.chip:hover { background: color-mix(in oklab, var(--acc) 14%, transparent); border-color: color-mix(in oklab, var(--acc) 45%, transparent); transform: translateY(-1px); }
+.chip[aria-pressed="true"] { background: var(--acc); color: var(--g); border-color: var(--acc); }
+.chip[aria-pressed="true"] .dot { background: var(--g); box-shadow: none; }
+.more {
+  cursor: pointer; font: 600 12px/1 var(--mono); color: var(--acc);
+  background: transparent; border: 1px dashed color-mix(in oklab, var(--acc) 50%, transparent);
+  border-radius: 999px; padding: 8px 12px;
+}
+.more:hover { background: color-mix(in oklab, var(--acc) 10%, transparent); }
+.chip.extra[hidden] { display: none; }
+
+.you {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 26px 18px; border-radius: 999px / 46%;
+  background: radial-gradient(circle at 50% 38%, color-mix(in oklab, var(--b) 42%, transparent), transparent 70%);
+  border: 1px solid var(--hair);
+}
+.ring { position: relative; width: 150px; height: 150px; }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring .track { stroke: var(--faint); }
+.ring .fill { stroke: var(--acc); stroke-linecap: round; transition: stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1); }
+.ring .mid { position: absolute; inset: 0; display: grid; place-content: center; }
+.ring .mid b { font-family: var(--display); font-stretch: 80%; font-size: 40px; line-height: 1; }
+.ring .mid small { font: 600 10px/1 var(--mono); letter-spacing: .18em; color: var(--dim); text-transform: uppercase; margin-top: 4px; }
+.you h3 { margin: 14px 0 2px; font-family: var(--display); font-stretch: 82%; font-size: 22px; text-transform: uppercase; }
+.you .sub { margin: 0 0 12px; font-size: 12.5px; color: var(--dim); }
+.files { list-style: none; margin: 0; padding: 0; width: 100%; display: grid; gap: 6px; }
+.files li { display: flex; gap: 8px; align-items: center; justify-content: space-between; font-size: 12.5px; padding: 7px 10px; border-radius: 8px; background: color-mix(in oklab, var(--fg) 5%, transparent); }
+.files li span:first-child { display: inline-flex; gap: 8px; align-items: center; font-family: var(--mono); }
+.files li em { font-style: normal; color: var(--dim); font-size: 11.5px; text-align: right; }
+
+/* ---------- spine ---------- */
+.spine { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.pillar { padding: 18px; border-radius: var(--r); border: 1px solid var(--hair); background: color-mix(in oklab, var(--card) 70%, transparent); display: flex; flex-direction: column; gap: 10px; }
+.pillar .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.pillar .zh { font: 700 34px/1 var(--body); color: var(--acc); }
+.pillar .en { display: block; margin-top: 6px; font-family: var(--display); font-stretch: 85%; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: .05em; }
+.pillar .line { margin: 0; font-size: 13px; color: var(--dim); }
+
+details.fold { border-top: 1px solid var(--hair); padding-top: 8px; margin-top: auto; }
+details.fold summary, details.conn summary { cursor: pointer; list-style: none; }
+details.fold summary::-webkit-details-marker, details.conn summary::-webkit-details-marker { display: none; }
+details.fold summary { display: flex; justify-content: space-between; align-items: center; font: 600 11.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--acc); padding: 6px 0; }
+.chev { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s ease; margin-right: 4px; }
+details[open] > summary .chev { transform: rotate(-135deg); }
+.items { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.items li { display: grid; grid-template-columns: auto 1fr; gap: 3px 9px; align-items: center; }
+.items li b { font: 500 12.5px/1.2 var(--mono); }
+.items li em { grid-column: 2; font-style: normal; font-size: 12px; color: var(--dim); }
+
+/* ---------- connectors ---------- */
+.conns { display: grid; gap: 10px; }
+details.conn { border: 1px solid var(--hair); border-radius: var(--r); background: color-mix(in oklab, var(--card) 60%, transparent); }
+details.conn summary { display: grid; grid-template-columns: 1fr auto auto; gap: 14px; align-items: center; padding: 16px 18px; }
+details.conn summary .nm { font-family: var(--display); font-stretch: 88%; font-weight: 700; font-size: 18px; letter-spacing: .01em; }
+details.conn .body { padding: 0 18px 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+details.conn .body h4 { margin: 0 0 6px; font: 600 10.5px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+details.conn .body p { margin: 0; font-size: 14px; line-height: 1.5; }
+
+.wiring { display: flex; flex-wrap: wrap; gap: 10px 26px; font: 500 12.5px/1.4 var(--mono); color: var(--dim); padding: 14px 18px; border-radius: var(--r); border: 1px dashed var(--hair); }
+.wiring b { color: var(--fg); font-weight: 600; }
+
+footer { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 500 12px/1.4 var(--mono); color: var(--dim); }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+
+/* ---------- inspector ---------- */
+.inspector {
+  position: fixed; right: 24px; bottom: 24px; z-index: 50; width: min(380px, calc(100vw - 24px));
+  padding: 22px 22px 20px; border-radius: calc(var(--r) + 4px);
+  background: color-mix(in oklab, var(--g) 82%, black); color: var(--fg);
+  border: 1px solid color-mix(in oklab, var(--acc) 38%, transparent);
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.75), 0 0 0 1px rgba(0,0,0,.2);
+  animation: slide .28s cubic-bezier(.2,.7,.2,1) both;
+}
+.inspector[hidden] { display: none; }
+.inspector .x { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--hair); background: transparent; color: var(--fg); cursor: pointer; font-size: 18px; line-height: 1; }
+.inspector .x:hover { border-color: var(--acc); color: var(--acc); }
+.inspector .loopname { font: 600 11px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; color: var(--acc); margin: 0 0 10px; }
+.inspector h3 { margin: 0 44px 12px 0; font: 700 24px/1.1 var(--mono); word-break: break-word; }
+.inspector p { margin: 14px 0 16px; font-size: 14.5px; line-height: 1.55; }
+.inspector .cmd { background: var(--acc); font-size: 14px; padding: 11px 16px; }
+
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 8px; }
+
+/* ---------- empty / broken state ---------- */
+.unfilled { max-width: 560px; margin: 18vh auto 0; padding: 28px; border-radius: var(--r); border: 1px solid color-mix(in oklab, var(--pending) 45%, transparent); }
+.unfilled h1 { font-family: var(--display); font-stretch: 80%; text-transform: uppercase; margin: 0 0 10px; }
+
+/* ---------- motion ---------- */
+.rise { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes ping { from { transform: scale(1); opacity: .9; } to { transform: scale(2.2); opacity: 0; } }
+@keyframes slide { from { opacity: 0; transform: translateY(16px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .hero { grid-template-columns: 1fr; align-items: start; }
+  .compass { grid-template-columns: 1fr 1fr; }
+  .you { grid-column: 1 / -1; grid-row: 1; border-radius: var(--r); }
+  .loop:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+  .loop:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+  .loop:nth-of-type(3) { grid-column: 1; grid-row: 3; }
+  .loop:nth-of-type(4) { grid-column: 2; grid-row: 3; }
+  .spine { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .wrap { padding: 26px 16px 110px; }
+  .compass { grid-template-columns: 1fr; }
+  .loop:nth-of-type(n) { grid-column: 1; grid-row: auto; }
+  .you { grid-row: auto; }
+  .spine { grid-template-columns: 1fr; }
+  .beacon { grid-template-columns: auto 1fr; }
+  .beacon .cmd { grid-column: 1 / -1; justify-self: start; }
+  details.conn .body { grid-template-columns: 1fr; }
+  details.conn summary { grid-template-columns: 1fr auto; }
+  details.conn summary .chev { display: none; }
+  .sec-head { flex-direction: column; align-items: flex-start; }
+  .sec-head p { text-align: left; }
+  .inspector { right: 12px; left: 12px; bottom: 12px; width: auto; }
+}
+</style>
+</head>
+<body>
+<main class="wrap" id="app" aria-live="polite"></main>
+
+<aside class="inspector" id="inspector" role="dialog" aria-modal="false" aria-labelledby="ins-title" hidden>
+  <button class="x" type="button" id="ins-close" aria-label="Close">&times;</button>
+  <p class="loopname" id="ins-loop"></p>
+  <h3 id="ins-title"></h3>
+  <span class="pill" id="ins-state"><i class="dot"></i><span></span></span>
+  <p id="ins-desc"></p>
+  <button class="cmd" type="button" id="ins-copy"><span id="ins-copy-cmd"></span><span class="copy">copy</span></button>
+</aside>
+
+<script type="application/json" id="map-data">__MAP_DATA__</script>
+<script>
+(function () {
+  "use strict";
+  var app = document.getElementById("app");
+  var STATE_WORD = { live: "live", pending: "pending", off: "off" };
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = String(text);
+    return n;
+  }
+  function stateOf(s) { return STATE_WORD[s] ? s : "off"; }
+  function dot(state) { var d = el("i", "dot"); d.setAttribute("data-state", stateOf(state)); return d; }
+  function pill(state, label) {
+    var p = el("span", "pill"); p.setAttribute("data-state", stateOf(state));
+    p.appendChild(el("i", "dot")); p.appendChild(el("span", "", label || stateOf(state)));
+    return p;
+  }
+  function rise(node, i) { node.classList.add("rise"); node.style.setProperty("--i", i); return node; }
+  function chev() { return el("i", "chev"); }
+
+  function copy(text, btn) {
+    var label = btn.querySelector(".copy");
+    function done(ok) {
+      if (!label) return;
+      label.textContent = ok ? "copied" : "select + copy";
+      setTimeout(function () { label.textContent = "copy"; }, 1600);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+    } else {
+      var t = document.createElement("textarea");
+      t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(t); done(ok);
+    }
+  }
+
+  var raw = document.getElementById("map-data").textContent.trim();
+  var data = null;
+  if (raw && raw.indexOf("__MAP" + "_DATA__") === -1) {
+    try { data = JSON.parse(raw); } catch (e) { data = null; }
+  }
+  if (!data) {
+    var u = el("section", "unfilled");
+    u.appendChild(el("p", "eyebrow", "System map"));
+    u.appendChild(el("h1", "", "No scan in this file"));
+    u.appendChild(el("p", "", "This page is the empty template. Run /system-map in Claude Code and it will scan your OS and fill this in."));
+    app.appendChild(u);
+    return;
+  }
+
+  var stats = data.stats || {};
+  var idx = 0;
+
+  /* ---------- hero ---------- */
+  var hero = el("header", "hero");
+  var left = el("div");
+  var eb = el("p", "eyebrow"); eb.appendChild(el("b", "", "AI Solopreneur OS")); eb.appendChild(document.createTextNode("  ·  势 The Terrain"));
+  if (data.os_version) {
+    var ver = el("span", "ver", "v" + String(data.os_version).replace(/^v/i, ""));
+    ver.setAttribute("title", "The OS version this map was scanned from (VERSION file)");
+    eb.appendChild(ver);
+  }
+  left.appendChild(eb);
+  var h1 = el("h1"); h1.appendChild(document.createTextNode("System")); h1.appendChild(el("span", "", "Map"));
+  left.appendChild(h1);
+  if (data.summary) left.appendChild(el("p", "summary", data.summary));
+  left.appendChild(el("p", "stamp", "Live snapshot · scanned " + (data.date || "") + (data.os_version ? " · OS " + data.os_version : "") + " · read-only"));
+  hero.appendChild(rise(left, idx++));
+
+  var gauges = el("div", "gauges");
+  function gauge(k, v, s, extra) {
+    var g = el("div", "gauge"); g.appendChild(el("div", "k", k));
+    var vv = el("div", "v"); if (v instanceof Node) vv.appendChild(v); else vv.textContent = v;
+    g.appendChild(vv); if (s) g.appendChild(el("div", "s", s)); if (extra) g.appendChild(extra);
+    gauges.appendChild(rise(g, idx++)); return g;
+  }
+  gauge("Skills", stats.skills != null ? stats.skills : "?", stats.commands != null ? stats.commands + " commands you can type" : "");
+  gauge("Agents", stats.agents != null ? stats.agents : "?", "one for each loop");
+  var cw = Number(stats.connectors_wired || 0), ct = Number(stats.connectors_total || 0);
+  var cv = el("span"); cv.appendChild(document.createTextNode(cw)); cv.appendChild(el("small", "", " / " + ct));
+  var segs = el("div", "segs"); for (var c = 0; c < ct; c++) { var seg = el("i"); if (c < cw) seg.className = "on"; segs.appendChild(seg); }
+  gauge("Connectors", cv, cw === 0 ? "none switched on yet" : cw + " switched on", segs);
+  var cadence = String(stats.cadence || "Dormant");
+  var cstate = cadence === "Daily" ? "live" : (cadence === "Ad-hoc" ? "pending" : "off");
+  var word = el("span", "word"); word.appendChild(dot(cstate)); word.appendChild(document.createTextNode(cadence));
+  gauge("Cadence", word, cadence === "Daily" ? "a daily routine is running" : (cadence === "Ad-hoc" ? "used now and then" : "no daily routine yet"));
+  hero.appendChild(gauges);
+  app.appendChild(hero);
+
+  /* ---------- next move ---------- */
+  var nm = data.next_move;
+  if (nm && nm.gap) {
+    var bc = el("section", "beacon"); bc.setAttribute("aria-label", "Next move");
+    var sig = el("div", "signal"); sig.appendChild(el("b")); bc.appendChild(sig);
+    var txt = el("div"); txt.appendChild(el("h2", "", "Your next move")); txt.appendChild(el("p", "", nm.gap));
+    if (nm.why) txt.appendChild(el("p", "why", nm.why));
+    bc.appendChild(txt);
+    if (nm.command) {
+      var b = el("button", "cmd"); b.type = "button";
+      b.appendChild(el("span", "", nm.command)); b.appendChild(el("span", "copy", "copy"));
+      b.setAttribute("aria-label", "Copy " + nm.command);
+      b.addEventListener("click", function () { copy(nm.command, b); });
+      bc.appendChild(b);
+    }
+    app.appendChild(rise(bc, idx++));
+  }
+
+  /* ---------- inspector ---------- */
+  var ins = document.getElementById("inspector");
+  var insTitle = document.getElementById("ins-title");
+  var insLoop = document.getElementById("ins-loop");
+  var insState = document.getElementById("ins-state");
+  var insDesc = document.getElementById("ins-desc");
+  var insCopy = document.getElementById("ins-copy");
+  var insCopyCmd = document.getElementById("ins-copy-cmd");
+  var active = null;
+
+  function closeInspector() {
+    ins.hidden = true;
+    if (active) { active.setAttribute("aria-pressed", "false"); active.focus(); active = null; }
+  }
+  function openInspector(skill, loopLabel, btn) {
+    if (active === btn) { closeInspector(); return; }
+    if (active) active.setAttribute("aria-pressed", "false");
+    active = btn; btn.setAttribute("aria-pressed", "true");
+    insLoop.textContent = loopLabel;
+    insTitle.textContent = skill.cmd;
+    insState.setAttribute("data-state", stateOf(skill.state));
+    insState.lastChild.textContent = stateOf(skill.state);
+    insDesc.textContent = skill.desc || "No description in this skill's file.";
+    insCopyCmd.textContent = skill.cmd;
+    ins.hidden = false;
+    ins.style.animation = "none"; void ins.offsetWidth; ins.style.animation = "";
+  }
+  document.getElementById("ins-close").addEventListener("click", closeInspector);
+  insCopy.addEventListener("click", function () { copy(insCopyCmd.textContent, insCopy); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !ins.hidden) closeInspector(); });
+
+  /* ---------- compass: the four loops around you ---------- */
+  var loops = data.loops || [];
+  var secL = el("section", "sec");
+  var hL = el("div", "sec-head");
+  var h2L = el("h2"); h2L.appendChild(el("span", "zh", "谋")); h2L.appendChild(document.createTextNode("The four loops"));
+  hL.appendChild(h2L); hL.appendChild(el("p", "", "Tap any command to see what it does"));
+  secL.appendChild(hL);
+  var compass = el("div", "compass");
+  var SHOW = 5;
+
+  loops.forEach(function (lp) {
+    var card = el("article", "loop");
+    card.appendChild(el("span", "wm", lp.zh || ""));
+    var head = el("header");
+    var name = el("div", "name"); name.appendChild(el("span", "zh", lp.zh || "")); name.appendChild(el("span", "en", lp.en || ""));
+    head.appendChild(name);
+    if (lp.agent) head.appendChild(el("span", "agent", "agent · " + lp.agent));
+    card.appendChild(head);
+    if (lp.line) card.appendChild(el("p", "line", lp.line));
+    var chips = el("div", "chips");
+    var skills = lp.skills || [];
+    var label = (lp.zh ? lp.zh + " " : "") + (lp.en || "");
+    skills.forEach(function (sk, i) {
+      var btn = el("button", "chip"); btn.type = "button";
+      btn.setAttribute("aria-pressed", "false"); btn.setAttribute("data-state", stateOf(sk.state));
+      btn.appendChild(dot(sk.state)); btn.appendChild(el("span", "", sk.cmd));
+      if (i >= SHOW) { btn.classList.add("extra"); btn.hidden = true; }
+      btn.addEventListener("click", function () { openInspector(sk, label, btn); });
+      chips.appendChild(btn);
+    });
+    if (skills.length > SHOW) {
+      var hiddenCount = skills.length - SHOW;
+      var more = el("button", "more", "+" + hiddenCount + " more"); more.type = "button";
+      more.setAttribute("aria-expanded", "false");
+      more.addEventListener("click", function () {
+        var open = more.getAttribute("aria-expanded") === "true";
+        chips.querySelectorAll(".chip.extra").forEach(function (x) { x.hidden = open; });
+        more.setAttribute("aria-expanded", open ? "false" : "true");
+        more.textContent = open ? "+" + hiddenCount + " more" : "show less";
+        chips.appendChild(more);
+      });
+      chips.appendChild(more);
+    }
+    card.appendChild(chips);
+    compass.appendChild(rise(card, idx++));
+  });
+
+  var ctx = data.context || {};
+  var you = el("div", "you");
+  var total = Math.max(0, Number(ctx.total || 0)), ready = Math.max(0, Number(ctx.ready || 0));
+  var pct = total ? Math.round(ready / total * 100) : 0;
+  var ring = el("div", "ring");
+  var R = 64, C = 2 * Math.PI * R;
+  ring.innerHTML = '<svg viewBox="0 0 150 150" aria-hidden="true"><circle class="track" cx="75" cy="75" r="64" fill="none" stroke-width="9"/><circle class="fill" cx="75" cy="75" r="64" fill="none" stroke-width="9" stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + C.toFixed(1) + '"/></svg>';
+  var mid = el("div", "mid"); mid.appendChild(el("b", "", ready + "/" + total)); mid.appendChild(el("small", "", "context ready"));
+  ring.appendChild(mid);
+  ring.setAttribute("role", "img"); ring.setAttribute("aria-label", ready + " of " + total + " context files ready");
+  you.appendChild(ring);
+  you.appendChild(el("h3", "", "You"));
+  you.appendChild(el("p", "sub", "what every loop reads first"));
+  var files = el("ul", "files");
+  (ctx.files || []).forEach(function (f) {
+    var li = el("li"); var a = el("span"); a.appendChild(dot(f.state)); a.appendChild(document.createTextNode(f.name));
+    li.appendChild(a); li.appendChild(el("em", "", f.note || stateOf(f.state))); files.appendChild(li);
+  });
+  you.appendChild(files);
+  compass.appendChild(rise(you, idx++));
+  secL.appendChild(compass);
+  app.appendChild(secL);
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      var f = ring.querySelector(".fill");
+      if (f) f.setAttribute("stroke-dashoffset", (C * (1 - pct / 100)).toFixed(1));
+    }, 250);
+  });
+
+  /* ---------- spine: the other pillars ---------- */
+  var spine = data.spine || [];
+  if (spine.length) {
+    var secS = el("section", "sec");
+    var hS = el("div", "sec-head");
+    var h2S = el("h2"); h2S.appendChild(el("span", "zh", "势 律 令 库")); h2S.appendChild(document.createTextNode("The spine"));
+    hS.appendChild(h2S); hS.appendChild(el("p", "", "Open a pillar to see what is inside"));
+    secS.appendChild(hS);
+    var grid = el("div", "spine");
+    spine.forEach(function (p) {
+      var card = el("article", "pillar");
+      var top = el("div", "top");
+      var nmw = el("div"); nmw.appendChild(el("span", "zh", p.zh || "")); nmw.appendChild(el("span", "en", p.en || ""));
+      top.appendChild(nmw); top.appendChild(pill(p.state));
+      card.appendChild(top);
+      if (p.line) card.appendChild(el("p", "line", p.line));
+      var items = p.items || [];
+      if (items.length) {
+        var d = el("details", "fold");
+        var s = el("summary"); s.appendChild(el("span", "", "What's inside · " + items.length)); s.appendChild(chev());
+        d.appendChild(s);
+        var ul = el("ul", "items");
+        items.forEach(function (it) {
+          var li = el("li"); li.appendChild(dot(it.state)); li.appendChild(el("b", "", it.label));
+          if (it.note) li.appendChild(el("em", "", it.note));
+          ul.appendChild(li);
+        });
+        d.appendChild(ul); card.appendChild(d);
+      }
+      grid.appendChild(rise(card, idx++));
+    });
+    secS.appendChild(grid);
+    app.appendChild(secS);
+  }
+
+  /* ---------- connectors ---------- */
+  var conns = data.connectors || [];
+  if (conns.length) {
+    var secC = el("section", "sec");
+    var hC = el("div", "sec-head");
+    var h2C = el("h2"); h2C.appendChild(el("span", "zh", "联")); h2C.appendChild(document.createTextNode("Connectors"));
+    hC.appendChild(h2C); hC.appendChild(el("p", "", "Optional. The OS works with none of them"));
+    secC.appendChild(hC);
+    var list = el("div", "conns");
+    conns.forEach(function (cn) {
+      var d = el("details", "conn");
+      var s = el("summary");
+      s.appendChild(el("span", "nm", cn.name)); s.appendChild(pill(cn.state, cn.state === "live" ? "switched on" : (cn.state === "pending" ? "not switched on" : "off"))); s.appendChild(chev());
+      d.appendChild(s);
+      var body = el("div", "body");
+      if (cn.what) { var w = el("div"); w.appendChild(el("h4", "", "What it gives you")); w.appendChild(el("p", "", cn.what)); body.appendChild(w); }
+      if (cn.how) { var hw = el("div"); hw.appendChild(el("h4", "", "How to switch it on")); hw.appendChild(el("p", "", cn.how)); body.appendChild(hw); }
+      d.appendChild(body);
+      list.appendChild(rise(d, idx++));
+    });
+    secC.appendChild(list);
+    app.appendChild(secC);
+  }
+
+  /* ---------- wiring + footer ---------- */
+  var wr = data.wiring;
+  if (wr) {
+    var wbox = el("div", "wiring");
+    function kv(k, v) { var s = el("span"); s.appendChild(document.createTextNode(k + " ")); s.appendChild(el("b", "", v)); wbox.appendChild(s); }
+    if (wr.skills != null) kv("skills with a command", (wr.shimmed != null ? wr.shimmed : "?") + " / " + wr.skills);
+    kv("aliases", (wr.aliases && wr.aliases.length) ? wr.aliases.join(", ") : "none");
+    kv("orphans", (wr.orphans && wr.orphans.length) ? wr.orphans.join(", ") : "none");
+    app.appendChild(rise(wbox, idx++));
+  }
+
+  var foot = el("footer");
+  var lg = el("div", "legend");
+  [["live", "live · installed and working"], ["pending", "pending · there, not switched on"], ["off", "off · missing"]].forEach(function (x) {
+    var s = el("span"); s.appendChild(dot(x[0])); s.appendChild(document.createTextNode(x[1])); lg.appendChild(s);
+  });
+  foot.appendChild(lg);
+  foot.appendChild(el("span", "", "/system-map · read-only · nothing was changed"));
+  app.appendChild(foot);
+})();
+</script>
+</body>
+</html>

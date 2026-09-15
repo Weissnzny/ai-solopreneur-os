@@ -5,6 +5,29 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.10.0 — 2026-09-15 — `/system-map` gets a real page: a template, a next move, and things you can open
+
+Weiss ran `/system-map` and called the result dull and stale. He was right, and the reason was structural:
+the skill told Claude to "produce a self-contained HTML one-pager", so every run invented its own look.
+Same data, a different page each time, and none of them were built to be read in two minutes.
+
+- **The look now lives in one file.** `.claude/skills/system-map/template.html` is the page. The skill fills
+  two slots, your `design-system/tokens.css` and the scan as JSON, and changes nothing else. Every run looks
+  the same, and a rebrand in `tokens.css` still reaches the map.
+- **The most useful thing is at the top.** Four big numbers (skills, agents, connectors switched on, cadence),
+  then one lit card: **your next move**, the single biggest gap and the command that closes it, one tap to copy.
+- **The four loops sit around you.** 知 阵 战 道 in the corners, and in the middle how much of `context/`
+  (who you are, your voice, your blueprint) is actually filled in.
+- **Long things open on a click instead of crowding the page.** Tap a command to see what it does and copy it.
+  A loop shows five commands and folds the rest behind `+N more`. The spine (势 律 令 库) and every connector
+  open to show what is inside and how to switch it on.
+- **Honest states, stated once.** `live` is installed and working, `pending` is there but not switched on,
+  `off` is missing. A connector only counts as on when its key is really in `.env`.
+- **The version shows on the page**, read from `VERSION`, so a screenshot says which OS it came from.
+- Opens offline: no web fonts, no CDN, no images. Respects reduced motion. Works on a phone.
+
+---
+
 ## 0.9.0 — 2026-09-11 — Everything the OS knows about you now lives in one folder
 
 Weiss asked the question a learner is going to ask: *"once they have answered `/kick-off`, where does
