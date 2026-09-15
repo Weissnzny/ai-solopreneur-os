@@ -23,7 +23,7 @@ You need three things:
 
 You do **not** need: a paid API key, a server, Python, a GitHub account, or any coding.
 
-After the OS is installed, add two more free tools, **Git** and **Node.js**. You never use them
+Before you get the OS (Step 4), add two more free tools, **Git** and **Node.js**. You never use them
 yourself: Claude Code needs them when you ask it to install a skill, an MCP or a CLI. The classroom
 lesson **Git + Node.js** shows each download with a picture.
 
