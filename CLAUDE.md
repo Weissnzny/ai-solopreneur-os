@@ -21,7 +21,7 @@ the canonical vocabulary (use these terms exactly). Don't re-derive the framewor
 
 ## The four loops → the skills under each
 - **知 Knowing** — `/marketing-psychology`, `/system-map`, `/system-check`. Get clear; score the build.
-- **阵 Formation** — `/kick-off`, `/brain`, `/find-skill`, `/daily-routine`. Set up + build the structures that hold.
+- **阵 Formation** — `/kick-off`, `/brain`, `/find-skill`, `/skill-creator`, `/daily-routine`. Set up + build the structures that hold.
 - **战 Campaign** — `/content-plan`, `/content`, `/caption`, `/carousel`, `/video-script`, `/storyboard`, `/thumbnail`, `/copywriting`, `/humanize`. Ship daily.
 - **道 The Way** — `/writing-beats`, `/humanize`. Tell the true story; protect what matters.
 

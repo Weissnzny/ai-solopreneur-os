@@ -64,6 +64,7 @@ Stuck? [`TROUBLESHOOTING.md`](./TROUBLESHOOTING.md). Installed already?
 | `/start-day` · `/shutdown` | 律 · 令 | your daily morning kickoff + evening wrap |
 | `/brain` | 阵 Formation | a local second-brain board you talk to |
 | `/find-skill` | 阵 Formation | find a trusted Claude Code skill before building one |
+| `/skill-creator` | 阵 Formation | turn something you already do well into your own skill (by Anthropic) |
 | `/marketing-psychology` | 知 Knowing | which behavioral model fits, applied honestly |
 | `/content-plan` | 战 Campaign | plan one week, push to your calendar (approval-gated) |
 | `/content` | 战 Campaign | route a topic through 8 content departments |

@@ -142,6 +142,7 @@ The ones you will actually live in:
 /humanize                     the quality gate, every time
 /brain                        a board you talk to
 /find-skill                   borrow before you build
+/skill-creator                build your own when nothing fits
 /system-check                 score your OS, get the top 3 fixes
 ```
 

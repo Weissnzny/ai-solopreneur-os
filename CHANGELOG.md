@@ -5,6 +5,27 @@ Versioning is semantic (`MAJOR.MINOR.PATCH`); the current version lives in `VERS
 
 ---
 
+## 0.11.0 — 2026-09-15 — `/skill-creator` ships inside the OS
+
+The Workshop lesson **Create Your Skills** runs `/skill-creator`, and the OS did not have it. A learner
+had to install it separately before the lesson could start, and a demo recorded on a fresh copy of the OS
+stopped at the first command.
+
+- **`/skill-creator` is in the box.** `.claude/skills/skill-creator/` is Anthropic's official skill,
+  copied byte for byte from the `skill-creator` plugin in `claude-plugins-official` and kept under its
+  own Apache 2.0 licence (`LICENSE.txt` inside the folder). Nothing in it was edited.
+- **Where it sits.** 阵 Formation, next to `/find-skill`: find a trusted skill first, build your own
+  when nothing fits. The `formation` agent now routes "create a skill" / "turn this into a skill" to it.
+- **Listed everywhere a command is listed:** `CLAUDE.md`, `README.md`, `LEARN.md`, plus the one-line
+  command file in `.claude/commands/`.
+- The plugin route still works if you prefer it: `/plugin install skill-creator@claude-plugins-official`.
+  You do not need both.
+
+Credit: `skill-creator` is written and maintained by **Anthropic**
+(github.com/anthropics/claude-plugins-official).
+
+---
+
 ## 0.10.0 — 2026-09-15 — `/system-map` gets a real page: a template, a next move, and things you can open
 
 Weiss ran `/system-map` and called the result dull and stale. He was right, and the reason was structural:
